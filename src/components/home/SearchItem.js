@@ -3,7 +3,8 @@ import Wine from "../../lib/wine-service";
 
 class SearchItem extends Component {
   state = {
-    item: ""
+    item: "",
+    test: [],
   };
 
   handleChange = event => {
@@ -11,13 +12,18 @@ class SearchItem extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async (event) => {
     event.preventDefault();
     const { item } = this.state;
     const { title } = this.props;
     if (title === 'Wine') {
-      Wine.search({ item });
+      const search = await Wine.search({ item }).then(( data ) => data.recommendedWines);
+      this.setState({
+        test: search,
+      })
     }
+    this.props.handleItem(item, title);
+    console.log(this.state.test);
   }
 
   render() {
