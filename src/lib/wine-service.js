@@ -3,7 +3,8 @@ import axios from "axios";
 class Wine {
   constructor() {
     this.wine = axios.create({
-      baseURL: "http://localhost:5000",
+      // baseURL: process.env.REACT_APP_REST_API_LOCATION,
+      baseURL: 'http://localhost:5000/',
       withCredentials: true
     });
   }

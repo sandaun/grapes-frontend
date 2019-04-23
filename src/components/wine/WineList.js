@@ -1,21 +1,38 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
+import Wine from "../../lib/wine-service";
 // import SearchItem from "./SearchItem";
 
 class WineList extends Component {
 
-  handleItem = (item) => {
-    console.log(`This is ${item} from Home`)
-    console.log(this.props);
-    this.props.handleItem(item);
-  };
+  state = {
+    wineList: [],
+  }
+
+  async componentDidMount() {
+    const { item } = this.props.match.params;
+    const search = await Wine.search({ item }).then(( data ) => data.recommendedWines);
+    this.setState({
+      wineList: search,
+    })
+  }
 
   render () {
+    const { wineList } = this.state
+    const { item } = this.props.match.params;
     return (
       <>
-        <div>This is WineList {this.props.item}</div>
+        <div>This is WineList with {item} wines</div>
+          <div>
+              <ul>
+                {wineList.map((wine, index) => {
+                  return <li key={index}>{wine.title}</li>
+                })}
+              </ul>
+          </div>
       </>
     );
   }
 }
 
-export default WineList;
+export default withRouter(WineList);

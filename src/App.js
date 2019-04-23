@@ -13,40 +13,34 @@ import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
 
-// import auth from "./lib/auth-service";
-
 class App extends Component {
-
-  // componentDidMount() {
-  //   auth.test().then(data => console.log(data, 'hey, this is data from frontend grapes'))
-  // }
 
   state = {
     item: '',
     redirect: false
   }
 
-  handleItem = (item, title) => {
-    console.log(`This is ${item} from APP`)
-    this.setState({
-      item: item,
-    })
-    if (title === 'Wine') {
-    this.props.history.push('wine');
-    }
-  };
+  // handleItem = (item, title) => {
+  //   console.log(`This is ${item} from APP`)
+  //   this.setState({
+  //     item: item,
+  //   })
+  //   if (title === 'Wine') {
+  //     this.props.history.push('/wine');
+  //   }
+  // };
 
   render() {
     return (
       <AuthProvider>
         <div className="container">
-          <h1>Basic React Authentication</h1>
+          <h1>title</h1>
           <Navbar />
           <Switch>
-            <AnonRoute path="/wine" component={WineList} item={this.state.item} />
+            <AnonRoute path="/wine/:item" component={WineList} />
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
-            <AnonRoute path="/" component={Home} handleItem={this.handleItem} />
+            <AnonRoute path="/" component={Home} />
             <PrivateRoute path="/private" component={Private} />
           </Switch>
         </div>

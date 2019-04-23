@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Wine from "../../lib/wine-service";
+import { withRouter } from 'react-router-dom';
 
 class SearchItem extends Component {
   state = {
-    item: "",
-    test: [],
+    item: '',
   };
 
   handleChange = event => {
@@ -12,18 +11,11 @@ class SearchItem extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = async (event) => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     const { item } = this.state;
     const { title } = this.props;
-    if (title === 'Wine') {
-      const search = await Wine.search({ item }).then(( data ) => data.recommendedWines);
-      this.setState({
-        test: search,
-      })
-    }
-    this.props.handleItem(item, title);
-    console.log(this.state.test);
+    this.props.history.push(`/${title}/${item}`)
   }
 
   render() {
@@ -33,7 +25,7 @@ class SearchItem extends Component {
       <>
         <div>{title}</div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>MicroPatyManagement</label>
+          <label>Choose your item</label>
           <input
             type="text"
             name="item"
@@ -47,4 +39,4 @@ class SearchItem extends Component {
   }
 }
 
-export default SearchItem;
+export default withRouter(SearchItem);
