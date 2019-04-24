@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
-import Wine from "../../lib/wine-service";
+import Pairing from "../../lib/wine-service";
 // import SearchItem from "./SearchItem";
 
 class FoodList extends Component {
@@ -11,7 +11,7 @@ class FoodList extends Component {
 
   async componentDidMount() {
     const { item } = this.props.match.params;
-    const search = await Wine.search({ item }).then(( data ) => data.pairings);
+    const search = await Pairing.searchFood({ item }).then(( data ) => data.pairings);
     this.setState({
       foodList: search,
     })

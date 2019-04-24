@@ -1,27 +1,31 @@
 import axios from "axios";
 
-class Wine {
+class Pairing {
   constructor() {
-    this.wine = axios.create({
+    this.pairing = axios.create({
       baseURL: process.env.REACT_APP_API_PUBLIC_URL,
       withCredentials: true
     });
   }
 
-  search(wine) {
+  searchFood(wine) {
     const { item } = wine;
     console.log(item, typeof(item));
-    return this.wine
+    return this.pairing
       .get('/wine/foodlist/?wine=' + item)
       .then(({ data }) => data);
   }
 
-// //Just for test purposes with the backend
-//   test() {
-//     return this.auth.get("/auth/test").then(response => response.data);
-//   }
+  searchWine(food) {
+    const { item } = food;
+    console.log(item, typeof(item));
+    return this.pairing
+      .get('/wine/winelist/?food=' + item)
+      .then(({ data }) => data);
+  }
+
 }
 
-const wine = new Wine();
+const pairing = new Pairing();
 
-export default wine;
+export default pairing;

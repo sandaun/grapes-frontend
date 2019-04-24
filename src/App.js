@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 // import Wine from "./pages/Wine";
 import Home from "./components/home/Home";
 import FoodList from "./components/wine/FoodList";
+import WineList from "./components/food/WineList";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
@@ -38,6 +39,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <AnonRoute path="/wine/:item" component={FoodList} />
+            <AnonRoute path="/food/:item" component={WineList} />
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
             <AnonRoute path="/" component={Home} />
