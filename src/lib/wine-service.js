@@ -12,7 +12,7 @@ class Wine {
     const { item } = wine;
     console.log(item, typeof(item));
     return this.wine
-      .get('/wine/winelist/?wine=' + item)
+      .get('/wine/foodlist/?wine=' + item)
       .then(({ data }) => data);
   }
 

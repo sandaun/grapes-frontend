@@ -3,30 +3,30 @@ import { withRouter } from 'react-router-dom';
 import Wine from "../../lib/wine-service";
 // import SearchItem from "./SearchItem";
 
-class WineList extends Component {
+class FoodList extends Component {
 
   state = {
-    wineList: [],
+    foodList: [],
   }
 
   async componentDidMount() {
     const { item } = this.props.match.params;
-    const search = await Wine.search({ item }).then(( data ) => data.recommendedWines);
+    const search = await Wine.search({ item }).then(( data ) => data.pairings);
     this.setState({
-      wineList: search,
+      foodList: search,
     })
   }
 
   render () {
-    const { wineList } = this.state
+    const { foodList } = this.state
     const { item } = this.props.match.params;
     return (
       <>
-        <div>This is WineList with {item} wines</div>
+        <div>This is foodList with {item} wines</div>
           <div>
               <ul>
-                {wineList.map((wine, index) => {
-                  return <li key={index}>{wine.title}</li>
+                {foodList.map((food, index) => {
+                  return <li key={index}>{food}</li>
                 })}
               </ul>
           </div>
@@ -35,4 +35,4 @@ class WineList extends Component {
   }
 }
 
-export default withRouter(WineList);
+export default withRouter(FoodList);
