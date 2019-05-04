@@ -42,13 +42,15 @@ class App extends Component {
           <Switch>
             <PrivateRoute path="/update" component={Edit} />
             <PrivateRoute path="/profile" component={Profile} />
-            <AnonRoute path="/wine/:item" component={FoodList} />
-            <AnonRoute path="/food/:item" component={WineList} />
-            <AnonRoute path="/wine" component={SearchItem} title='Wine'/>
-            <AnonRoute path="/food" component={SearchItem} title='Food'/>
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
+            <Route path="/wine/:item" component={FoodList} />
+            <Route path="/food/:item" component={WineList} />
+            <Route path="/wine" render={(props) => <SearchItem {...props} title='Wine' />}/> {/* THIS IS HOW TO PASS PROPS IN ROUTE */}
+            <Route path="/food" render={(props) => <SearchItem {...props} title='Food' />}/>
             <Route path="/" component={Home} />
+            {/* <Route path="/wine" component={SearchItem} title='Wine'/> */}
+            {/* <Route path="/food" component={SearchItem} title='Food'/> */}
           </Switch>
         </div>
       </AuthProvider>
