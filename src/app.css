@@ -1,0 +1,22 @@
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test {
+  text-align: center;
+  flex-direction: column;
+}
+
+
+.contact-card-container{
+  background: #FFFFFF;
+  box-shadow: 0px 16px 24px rgba(99, 148, 140, 0.3);
+  border-radius: 6px;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;  
+}

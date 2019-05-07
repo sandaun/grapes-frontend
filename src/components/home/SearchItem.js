@@ -22,10 +22,10 @@ class SearchItem extends Component {
     let itemArray = [];
 
     if (title === 'Food') {
-      itemArray = ['Choose your food', 'orange', 'pork', 'tuna', 'salmon', 'steak'];
+      itemArray = ['Choose...', 'orange', 'pork', 'tuna', 'salmon', 'steak'];
     }
     else if (title === 'Wine') {
-      itemArray = ['Choose your wine', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
+      itemArray = ['Choose...', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
     }
     return itemArray;
   }
@@ -36,9 +36,9 @@ class SearchItem extends Component {
     const itemArray = this.chooseItemList(title);
     return (
       <>
-        <div>{title}</div>
+        {/* <div>{title}</div> */}
         <form onSubmit={this.handleFormSubmit}>
-          <label>Choose your {title}</label>
+          <label>{title}</label>
           <select
             type="text"
             name="item"

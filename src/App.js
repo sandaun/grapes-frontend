@@ -10,7 +10,7 @@ import Home from "./components/home/Home";
 import FoodList from "./components/wine/FoodList";
 import WineList from "./components/food/WineList";
 import SearchItem from "./components/home/SearchItem";
-
+import './app.css';
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
