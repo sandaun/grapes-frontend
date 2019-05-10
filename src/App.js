@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        <div className="container">
+        <div>
           {/* <h1>Welcome to grapes!</h1> */}
           {/* <Navbar /> */}
           <Switch>
