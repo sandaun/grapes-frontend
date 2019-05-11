@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
-import { ListGroup, ListGroupItem, Container } from 'react-bootstrap';
+import { ListGroup, Container } from 'react-bootstrap';
 
 // import SearchItem from "./SearchItem";
 
@@ -31,7 +31,7 @@ class FoodList extends Component {
               {foodList.map((food, index) => {
                 return <ListGroup.Item className="test" action href="#link1" key={index}>
                   {food}
-                  <img src="/images/wine.jpg" style={{ width: '18rem' }}/>
+                  <img src="/images/wine.jpg" style={{ width: '18rem' }} alt='food'/>
                 </ListGroup.Item>
               })}
             </ListGroup>

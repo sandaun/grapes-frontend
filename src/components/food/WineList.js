@@ -22,7 +22,7 @@ class WineList extends Component {
     const { item } = this.props.match.params;
     return (
       <>
-        <div>This is wineList with {item} ingredient</div>
+        <div>{`This is wineList with ${item} ingredient`}</div>
           <div>
               <ul>
                 {wineList.map((wine, index) => {

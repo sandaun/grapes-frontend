@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import { ListGroup } from 'react-bootstrap';
 
 class SearchItem extends Component {
   state = {
@@ -28,22 +29,28 @@ class SearchItem extends Component {
     //   itemArray = ['Choose...', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
     // }
     if (grape === 'red') {
-      itemArray = ['Choose...', 'syrah', 'malbec', 'cabernet sauvignon', 'merlot', 'pinot noir', 'grenache'];      
+      itemArray = ['syrah', 'malbec', 'cabernet sauvignon', 'merlot', 'pinot noir', 'grenache'];      
     }
     else if (grape === 'white') {
-      itemArray = ['Choose...', 'chardonnay', 'chablis', 'sauvignon blanc', 'pinot grigio', 'riesling', 'gewurztraminer'];
+      itemArray = ['chardonnay', 'chablis', 'sauvignon blanc', 'pinot grigio', 'riesling', 'gewurztraminer'];
     }
     return itemArray;
   }
 
   render() {
     const { title, grape } = this.props;
-    const { item } = this.state;
+    // const { item } = this.state;
     const itemArray = this.chooseItemList(title, grape);
     return (
       <>
+        {itemArray.map((item, index) => <ListGroup key={index} value={item} variant='flush'>
+          <ListGroup.Item>
+            <Link to={`/${title}/${item}`}>{item}</Link>
+          </ListGroup.Item>
+        </ListGroup>)}
+
         {/* <div>{title}</div> */}
-        <form onSubmit={this.handleFormSubmit}>
+        {/* <form onSubmit={this.handleFormSubmit}>
           <label>{title}</label>
           <select
             type="text"
@@ -54,7 +61,7 @@ class SearchItem extends Component {
             {itemArray.map((item,y) => <option key={y} value={item}>{item}</option>)}
           </select>
           <input type="submit" value="Go!" />
-        </form>
+        </form> */}
       </>
     );
   }

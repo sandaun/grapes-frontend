@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import SearchItem from "./SearchItem";
 import WineModal from "./wine-modal"
 import { Link, withRouter } from "react-router-dom";
 import { Container, Button, Card } from 'react-bootstrap';
@@ -25,10 +24,33 @@ class Home extends Component {
           <div>
             <div><h1 className="text-danger display-1 text-center">grapes</h1></div>
             <div>
-              {/* <div>
-                <div><p>Pair Wine with Food </p><Link to={"/wine"}> Wine ME! </Link></div>
-                <div><p>Pair Food with Wine </p><Link to={"/food"}> I'm Hungry </Link></div>
-              </div><br></br> */}
+              <Card style={{ width: '18rem' }} bg="white" text="dark" className="mb-2">                  
+                <Card.Body>
+                  {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
+                  {/* <Card.ImgOverlay> */}
+                  <Card.Title>WINE</Card.Title>
+                  <Card.Text>
+                    I know what you're thinking... Let's find the perfect pairing for your bottle!
+                  </Card.Text>
+                    <Button 
+                      variant="danger"
+                      onClick={() => this.setState({ modalShow: true, title: 'Wine', grape: 'red' })}
+                      className=''
+                      style={{ width: '6rem' }}
+                    >
+                      Red
+                    </Button>
+                    <Button 
+                      variant="warning"
+                      onClick={() => this.setState({ modalShow: true, title: 'Wine', grape: 'white' })}
+                      className='ml-5'
+                      style={{ width: '6rem' }}
+                    >
+                      White
+                    </Button>
+                  {/* </Card.ImgOverlay> */}
+                </Card.Body>
+              </Card>
 
               <Card style={{ width: '18rem' }} bg="white" text="dark" className="mb-2">                  
                 <Card.Body>
@@ -38,10 +60,11 @@ class Home extends Component {
                   <Card.Text>
                     I know what you're thinking... Let's find the perfect pairing for your bottle!
                   </Card.Text>
-                  {/* <Link to={"/wine"}>  */}
                     <Button 
                       variant="danger"
                       onClick={() => this.setState({ modalShow: true, title: 'Wine', grape: 'red' })}
+                      className=''
+                      style={{ width: '6rem' }}
                     >
                       Red
                     </Button>
@@ -49,10 +72,10 @@ class Home extends Component {
                       variant="warning"
                       onClick={() => this.setState({ modalShow: true, title: 'Wine', grape: 'white' })}
                       className='ml-5'
+                      style={{ width: '6rem' }}
                     >
                       White
                     </Button>
-                  {/* </Link> */}
                   {/* </Card.ImgOverlay> */}
                 </Card.Body>
               </Card>

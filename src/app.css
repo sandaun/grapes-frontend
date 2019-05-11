@@ -14,6 +14,14 @@
   justify-content: center;
 }
 
+.modals {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+}
+
 .test {
   background-color: beige;
 }
