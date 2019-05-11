@@ -18,22 +18,28 @@ class SearchItem extends Component {
     this.props.history.push(`/${title}/${item}`)
   }
 
-  chooseItemList(title) {
+  chooseItemList(title, grape) {
     let itemArray = [];
 
-    if (title === 'Food') {
-      itemArray = ['Choose...', 'orange', 'pork', 'tuna', 'salmon', 'steak'];
+    // if (title === 'Food') {
+    //   itemArray = ['Choose...', 'orange', 'pork', 'tuna', 'salmon', 'steak'];
+    // }
+    // else if (title === 'Wine') {
+    //   itemArray = ['Choose...', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
+    // }
+    if (grape === 'red') {
+      itemArray = ['Choose...', 'syrah', 'malbec', 'cabernet sauvignon', 'merlot', 'pinot noir', 'grenache'];      
     }
-    else if (title === 'Wine') {
-      itemArray = ['Choose...', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
+    else if (grape === 'white') {
+      itemArray = ['Choose...', 'chardonnay', 'chablis', 'sauvignon blanc', 'pinot grigio', 'riesling', 'gewurztraminer'];
     }
     return itemArray;
   }
 
   render() {
-    const { title } = this.props;
+    const { title, grape } = this.props;
     const { item } = this.state;
-    const itemArray = this.chooseItemList(title);
+    const itemArray = this.chooseItemList(title, grape);
     return (
       <>
         {/* <div>{title}</div> */}
@@ -47,12 +53,6 @@ class SearchItem extends Component {
           >
             {itemArray.map((item,y) => <option key={y} value={item}>{item}</option>)}
           </select>
-          {/* <input
-            type="text"
-            name="item"
-            value={item}
-            onChange={this.handleChange}
-          /> */}
           <input type="submit" value="Go!" />
         </form>
       </>
