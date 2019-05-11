@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
-// import SearchItem from "./SearchItem";
+import { ListGroup, Container } from 'react-bootstrap';
 
 class WineList extends Component {
 
@@ -22,14 +22,19 @@ class WineList extends Component {
     const { item } = this.props.match.params;
     return (
       <>
+      <Container>
         <div>{`This is wineList with ${item} ingredient`}</div>
-          <div>
-              <ul>
-                {wineList.map((wine, index) => {
-                  return <li key={index}>{wine}</li>
-                })}
-              </ul>
-          </div>
+        <div>
+            <ListGroup variant="" defaultActiveKey="#link">
+              {wineList.map((wine, index) => {
+                return <ListGroup.Item className="test" action href="#link1" key={index}>
+                  {wine}
+                  <img src="/images/wine.jpg" style={{ width: '18rem' }} alt='wine'/>
+                </ListGroup.Item>
+              })}
+            </ListGroup>
+        </div>
+      </Container>
       </>
     );
   }

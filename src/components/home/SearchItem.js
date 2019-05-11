@@ -19,16 +19,16 @@ class SearchItem extends Component {
     this.props.history.push(`/${title}/${item}`)
   }
 
-  chooseItemList(title, grape) {
+  chooseItemList(grape, food) {
     let itemArray = [];
 
-    // if (title === 'Food') {
-    //   itemArray = ['Choose...', 'orange', 'pork', 'tuna', 'salmon', 'steak'];
-    // }
-    // else if (title === 'Wine') {
-    //   itemArray = ['Choose...', 'chardonnay', 'water', 'malbec', 'cabernet sauvignon', 'merlot'];
-    // }
-    if (grape === 'red') {
+    if (food === 'meat') {
+      itemArray = ['duck', 'pork', 'steak'];
+    }
+    else if (food === 'cheese') {
+      itemArray = ['parmesan', 'gouda', 'stilton'];
+    }
+    else if (grape === 'red') {
       itemArray = ['syrah', 'malbec', 'cabernet sauvignon', 'merlot', 'pinot noir', 'grenache'];      
     }
     else if (grape === 'white') {
@@ -38,9 +38,9 @@ class SearchItem extends Component {
   }
 
   render() {
-    const { title, grape } = this.props;
+    const { title, grape, food } = this.props;
     // const { item } = this.state;
-    const itemArray = this.chooseItemList(title, grape);
+    const itemArray = this.chooseItemList(grape, food);
     return (
       <>
         {itemArray.map((item, index) => <ListGroup key={index} variant='flush'>

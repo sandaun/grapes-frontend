@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WineModal from "./wine-modal"
+import FoodModal from "./food-modal"
 import { Link, withRouter } from "react-router-dom";
 import { Container, Button, Card } from 'react-bootstrap';
 
@@ -9,7 +10,8 @@ class Home extends Component {
     modalWineShow: false, 
     modalFoodShow: false, 
     title: '',
-    grape: ''
+    grape: '',
+    food: ''
   };
 
   handleClick = (event) => {
@@ -18,7 +20,8 @@ class Home extends Component {
   }
 
   render () {
-    let modalClose = () => this.setState({ modalWineShow: false });
+    let modalWineClose = () => this.setState({ modalWineShow: false });
+    let modalFoodClose = () => this.setState({ modalFoodShow: false });
     return (
       <>
         <Container className="home-background vertical-center">
@@ -63,7 +66,7 @@ class Home extends Component {
                   </Card.Text>
                     <Button 
                       variant="dark"
-                      onClick={() => this.setState({ modalWineShow: true, title: 'Wine', grape: 'red' })}
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'meat' })}
                       className=''
                       style={{ width: '6rem' }}
                     >
@@ -71,7 +74,7 @@ class Home extends Component {
                     </Button>
                     <Button 
                       // variant="warning"
-                      onClick={() => this.setState({ modalWineShow: true, title: 'Wine', grape: 'white' })}
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'cheese' })}
                       className='ml-4'
                       style={{ width: '7rem', background: 'green' }}
                     >
@@ -83,17 +86,17 @@ class Home extends Component {
 
                 <WineModal
                   show={this.state.modalWineShow}
-                  onHide={modalClose}
+                  onHide={modalWineClose}
                   title={this.state.title}
                   grape={this.state.grape}
                 />
 
-                {/* <FoodModal
-                  show={this.state.modalWineShow}
-                  onHide={modalClose}
+                <FoodModal
+                  show={this.state.modalFoodShow}
+                  onHide={modalFoodClose}
                   title={this.state.title}
-                  grape={this.state.grape}
-                /> */}
+                  food={this.state.food}
+                />
                           
               <div>
                 <Button onClick={() => {this.props.history.push('/login')} }>Login</Button>
