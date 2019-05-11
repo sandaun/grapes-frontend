@@ -43,7 +43,7 @@ class SearchItem extends Component {
     const itemArray = this.chooseItemList(title, grape);
     return (
       <>
-        {itemArray.map((item, index) => <ListGroup key={index} value={item} variant='flush'>
+        {itemArray.map((item, index) => <ListGroup key={index} variant='flush'>
           <ListGroup.Item>
             <Link to={`/${title}/${item}`}>{item}</Link>
           </ListGroup.Item>

@@ -3,8 +3,6 @@ import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { ListGroup, Container } from 'react-bootstrap';
 
-// import SearchItem from "./SearchItem";
-
 class FoodList extends Component {
 
   state = {
