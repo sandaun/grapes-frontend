@@ -28,6 +28,18 @@ class SearchItem extends Component {
     else if (food === 'cheese') {
       itemArray = ['parmesan', 'gouda', 'stilton'];
     }
+    else if (food === 'rice') {
+      itemArray = ['risotto', 'paella'];
+    }
+    else if (food === 'fish') {
+      itemArray = ['calamari', 'gouda', 'stilton'];
+    }
+    else if (food === 'cuisine') {
+      itemArray = ['Italian', 'Spanish', 'American', 'Japanese', 'Chinese', 'Thai', 'Mexican', 'French', 'German'];
+    }
+    else if (food === 'dessert') {
+      itemArray = ['chocolate', 'cake', 'stilton'];
+    }
     else if (grape === 'red') {
       itemArray = ['syrah', 'malbec', 'cabernet sauvignon', 'merlot', 'pinot noir', 'grenache'];      
     }

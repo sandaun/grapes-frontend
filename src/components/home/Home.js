@@ -24,85 +24,110 @@ class Home extends Component {
     let modalFoodClose = () => this.setState({ modalFoodShow: false });
     return (
       <>
+        <div className="home-header">
+          <h1 className="display-1">grapes</h1>
+          <p>Find the perfect lover for your wine and food</p>
+        </div>
         <Container className="home-background vertical-center">
-          <div>
-            <div><h1 className="text-danger display-1 text-center">grapes</h1></div>
-            <div>
-              <Card style={{ width: '18rem' }} bg="" text="dark" className="mb-2 home-cards">                  
-                <Card.Body>
-                  {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
-                  {/* <Card.ImgOverlay> */}
-                  <Card.Title>WINE</Card.Title>
-                  <Card.Text>
-                    Let's find the perfect pairing for your bottle!
-                  </Card.Text>
+          <div className="home-wrap-cards">
+            <Card style={{ width: '18rem' }} bg="" text="dark" className="mb-2 home-cards">                  
+              <Card.Body>
+                {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
+                {/* <Card.ImgOverlay> */}
+                <Card.Title>WINE</Card.Title>
+                <Card.Text>
+                  Match your wine with food!
+                </Card.Text>
+                  <div className="buttons-wine">
                     <Button 
-                      variant="danger"
                       onClick={() => this.setState({ modalWineShow: true, title: 'Wine', grape: 'red' })}
-                      className=''
-                      style={{ width: '6rem' }}
+                      style={{ width: '7rem' }}
                     >
                       Red <span role="img" aria-label="RedWine">🍷</span>
                     </Button>
                     <Button 
-                      variant="warning"
                       onClick={() => this.setState({ modalWineShow: true, title: 'Wine', grape: 'white' })}
-                      className='ml-5'
-                      style={{ width: '6rem' }}
+                      style={{ width: '7rem' }}
                     >
                       White <span role="img" aria-label="WhiteWine">🥂</span>
                     </Button>
-                  {/* </Card.ImgOverlay> */}
-                </Card.Body>
-              </Card>
+                  </div>
+                {/* </Card.ImgOverlay> */}
+              </Card.Body>
+            </Card>
 
-              <Card style={{ width: '18rem' }} text="dark" className="mb-2 home-cards">                  
-                <Card.Body>
-                  {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
-                  {/* <Card.ImgOverlay> */}
-                  <Card.Title>FOOD</Card.Title>
-                  <Card.Text>
-                    Hungry...? Get the matching wine for your food!
-                  </Card.Text>
+            <Card style={{ width: '18rem' }} text="dark" className="mb-2 home-cards">                  
+              <Card.Body>
+                {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
+                {/* <Card.ImgOverlay> */}
+                <Card.Title>FOOD</Card.Title>
+                <Card.Text>
+                  Match your food with wine!
+                </Card.Text>
+                <div className="buttons-wine">
+                  <Button 
+                    onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'meat' })}
+                    style={{ width: '7rem' }}
+                  >
+                    Meat <span role="img" aria-label="Meat">🍖</span>
+                  </Button>
+                  <Button 
+                    onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'cheese' })}
+                    style={{ width: '7rem' }}
+                  >
+                    Cheese <span role="img" aria-label="Cheese">🧀</span>
+                  </Button>
+                  </div>
+                  <div className="buttons-wine mt-2">
                     <Button 
-                      variant="dark"
-                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'meat' })}
-                      className=''
-                      style={{ width: '6rem' }}
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'fish' })}
+                      style={{ width: '7rem' }}
                     >
-                      Meat <span role="img" aria-label="Meat">🍖</span>
+                      Fish <span role="img" aria-label="Fish">🐟</span>
                     </Button>
                     <Button 
-                      // variant="warning"
-                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'cheese' })}
-                      className='ml-4'
-                      style={{ width: '7rem', background: 'green' }}
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'rice' })}
+                      style={{ width: '7rem' }}
                     >
-                      Cheese <span role="img" aria-label="Cheese">🧀</span>
+                      Rice <span role="img" aria-label="Pasta">🍚</span>
                     </Button>
-                  {/* </Card.ImgOverlay> */}
-                </Card.Body>
-              </Card>
+                  </div>
+                  <div className="buttons-wine mt-2">
+                    <Button 
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'cuisine' })}
+                      style={{ width: '7rem' }}
+                    >
+                      Cuisine <span role="img" aria-label="Veggies">🇮🇹</span>
+                    </Button>
+                    <Button 
+                      onClick={() => this.setState({ modalFoodShow: true, title: 'Food', food: 'dessert' })}
+                      style={{ width: '7rem' }}
+                    >
+                      Dessert <span role="img" aria-label="Dessert">🧁</span>
+                    </Button>
+                  </div>
+                {/* </Card.ImgOverlay> */}
+              </Card.Body>
+            </Card>
 
-                <WineModal
-                  show={this.state.modalWineShow}
-                  onHide={modalWineClose}
-                  title={this.state.title}
-                  grape={this.state.grape}
-                />
+              <WineModal
+                show={this.state.modalWineShow}
+                onHide={modalWineClose}
+                title={this.state.title}
+                grape={this.state.grape}
+              />
 
-                <FoodModal
-                  show={this.state.modalFoodShow}
-                  onHide={modalFoodClose}
-                  title={this.state.title}
-                  food={this.state.food}
-                />
-                          
-              <div>
-                <Button onClick={() => {this.props.history.push('/login')} }>Login</Button>
-                <div><br></br><Link to={"/signup"}> or Sign up</Link></div>
-              </div>
-            </div>
+              <FoodModal
+                show={this.state.modalFoodShow}
+                onHide={modalFoodClose}
+                title={this.state.title}
+                food={this.state.food}
+              />
+                        
+            {/* <div>
+              <Button onClick={() => {this.props.history.push('/login')} }>Login</Button>
+              <div><br></br><Link to={"/signup"}> or Sign up</Link></div>
+            </div> */}
           </div>
         </Container>
       </>
