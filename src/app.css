@@ -133,6 +133,92 @@ justify-content: center;
   border-color:white;
 }
 
+.login-signup-text {
+  color: #ffc107
+}
+
+/* ------------ SIGNUP SCREEN ------------ */
+
+.signup-background {
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
+  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
+  background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+}
+
+.signup-text {
+  color: white;
+}
+
+.signup-button {
+  color: white;
+  border-color: white;
+  background: transparent;
+  margin-top: 2rem;
+  width: 70%;
+}
+
+.signup-button:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255, 255, 255, .5);
+}
+
+.signup-button:hover {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
+}
+
+.signup-button:not(:disabled):not(.disabled):active {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
+}
+
+.signup-login-text {
+  color: #ffc107
+}
+
+/* ------------ EDIT PROFILE SCREEN ------------ */
+
+.edit-background {
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
+  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
+  background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+}
+
+.edit-text {
+  color: white;
+}
+
+.edit-button {
+  color: white;
+  border-color: white;
+  background: transparent;
+  margin-top: 2rem;
+  width: 70%;
+}
+
+.edit-button:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255, 255, 255, .5);
+}
+
+.edit-button:hover {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
+}
+
+.edit-button:not(:disabled):not(.disabled):active {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
+}
+
+.edit-text {
+  color: #ffc107
+}
+
 /* ERROR NOT FOUND */
 
 .not-found {
@@ -145,4 +231,17 @@ justify-content: center;
 .not-found img {
   width: 100%;
   margin: 5rem auto;
+}
+
+/* ------------ FOOD AND WINE LISTS SCREEN ------------ */
+
+.list-background {
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
+  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
+  background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+}
+
+.list-text {
+  color: #ffc107
 }

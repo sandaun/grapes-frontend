@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import { Link } from "react-router-dom";
 import { Form, Button, Container } from 'react-bootstrap';
 
 class Login extends Component {
@@ -36,7 +37,6 @@ class Login extends Component {
   render() {
     const { username, password, validated } = this.state;
     return (
-      <>
       <Container className="login-background vertical-center">
         <div>
           <h3 className="mt-4 mb-4 text-white">Log in</h3>
@@ -78,29 +78,16 @@ class Login extends Component {
               </Form.Control.Feedback>
               <Form.Control.Feedback>Well done!</Form.Control.Feedback>
             </Form.Group>
-            <Button type="submit" className="login-button">Login!</Button>
+            <Button type="submit" className="login-button">Log in</Button>
           </Form>
+          <div>
+            <p className="row justify-content-center mt-4 text-white">
+              Not registered yet? Just
+              <Link to={"/signup"} className="ml-1 signup-login-text">Sign up</Link>
+            </p>
+          </div>
         </div>
       </Container>
-
-      {/* <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Login" />
-      </form> */}
-      </>
     );
   }
 }
