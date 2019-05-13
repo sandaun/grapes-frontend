@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import WineModal from "./wine-modal"
 import FoodModal from "./food-modal"
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Container, Button, Card } from 'react-bootstrap';
 import Footer from "../Footer"
 
@@ -16,10 +16,10 @@ class Home extends Component {
     food: ''
   };
 
-  handleClick = (event) => {
-    console.log('hello');
-    return <Link to={"/login"}></Link>
-  }
+  // handleClick = (event) => {
+  //   console.log('hello');
+  //   return <Link to={"/login"}></Link>
+  // }
 
   render () {
     let modalWineClose = () => this.setState({ modalWineShow: false });

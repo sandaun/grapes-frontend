@@ -31,7 +31,7 @@ class FoodList extends Component {
     return (
       <>
       <Container className="list-background vertical-center">
-        <div className="mt-4" >
+        <div className="mt-4">
           <h4 className="text-white">Pairing food for <span className="list-text">{item}</span> wines</h4>
         </div>
         {/* <div>
@@ -48,7 +48,7 @@ class FoodList extends Component {
         <div>
           {foodList.map((food, index) => {
             return (
-              <div key={index} className="">
+              <div key={index}>
                 <Card style={{ width: '18rem' }} className="mt-3 mb-3">
                   <Card.Img variant="top" src="/images/wine.jpg" />
                   <Card.Body>
