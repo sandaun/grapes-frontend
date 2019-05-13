@@ -6,6 +6,7 @@ import SearchItem from "./SearchItem";
 
 class WineModal extends Component {
   render() {
+    const { title, grape } = this.props;
     return (
       <Modal
         {...this.props}
@@ -17,16 +18,16 @@ class WineModal extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            CHOOSE YOUR GRAPE!
+            Choose your {grape} wine!
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {/* <h4>Centered Modal</h4> */}
-          <SearchItem title={this.props.title} grape={this.props.grape}/>
+          <SearchItem title={title} grape={grape}/>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     );
   }

@@ -1,17 +1,31 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import { Form, Button, Container } from 'react-bootstrap';
 
 class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    validated: false,
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   const { username, password } = this.state;
+  //   this.props.login({ username, password });
+  // };
+
+  handleSubmit(event) {
+    const form = event.currentTarget;
     const { username, password } = this.state;
-    this.props.login({ username, password });
-  };
+
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+      this.setState({ validated: true });
+      this.props.login({ username, password });
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -19,9 +33,54 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, validated } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <>
+      <Container className="login-background vertical-center">
+        <div>
+          <h4 className="mt-4 mb-4">Login</h4>
+        </div>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={e => this.handleSubmit(e)}
+          className="text-center"
+        >
+          <Form.Group controlId="validationCustom01">
+            {/* <Form.Label>Username</Form.Label> */}
+            <Form.Control
+              required
+              type="text"
+              placeholder="Username"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+            <Form.Control.Feedback type="invalid">
+              Username is required.
+            </Form.Control.Feedback>
+            <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group controlId="validationCustom02">
+            {/* <Form.Label>Password</Form.Label> */}
+            <Form.Control
+              required
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}              
+            />
+            <Form.Control.Feedback type="invalid">
+              Password is required.
+            </Form.Control.Feedback>
+            <Form.Control.Feedback>Well done!</Form.Control.Feedback>
+          </Form.Group>
+          <Button type="submit">Login!</Button>
+        </Form>
+      </Container>
+
+      {/* <form onSubmit={this.handleFormSubmit}>
         <label>Username:</label>
         <input
           type="text"
@@ -37,7 +96,8 @@ class Login extends Component {
           onChange={this.handleChange}
         />
         <input type="submit" value="Login" />
-      </form>
+      </form> */}
+      </>
     );
   }
 }

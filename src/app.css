@@ -1,11 +1,23 @@
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* HOME SCREEN /*/
+.modals {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+}
+
 .home-background {
-  background: linear-gradient(160deg, rgba(220,53,69,0.6), rgba(0,0,0,0.5)),url(/images/wine.jpg);
-  /* background: linear-gradient(160deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(/images/wine.jpg); */
-  background-position-y: center;
-  background-size: cover;
-  background-position: center;
-  padding: 0;
-  z-index: 1;
+  /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(20,0,0,0.5)),url(/images/wine.jpg); */
+  background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(225,238,195,0.6)),url(/images/wine.jpg);
 }
 
 /* Color with transparency for cards in Home */
@@ -68,27 +80,18 @@ justify-content: center;
   border-color:rgb(255, 61, 61);
 }
 
-/* .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
-  color: white;
-  background-color: rgb(255, 61, 61);
-  border-color:rgb(255, 61, 61);
-} */
-
-.vertical-center {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modals {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 50%;
-}
-
 .test {
   background-color: beige;
+}
+
+/* ------------ LOGIN SCREEN ------------ */
+
+.login-background {
+  background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1));
+  background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));  
+  background-position-y: center;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  z-index: 1;
 }
