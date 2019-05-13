@@ -3,6 +3,8 @@ import WineModal from "./wine-modal"
 import FoodModal from "./food-modal"
 import { Link, withRouter } from "react-router-dom";
 import { Container, Button, Card } from 'react-bootstrap';
+import Footer from "../Footer"
+
 
 class Home extends Component {
 
@@ -130,6 +132,8 @@ class Home extends Component {
             </div> */}
           </div>
         </Container>
+      <Footer />
+        
       </>
     );
   }

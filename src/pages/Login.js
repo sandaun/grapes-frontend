@@ -22,9 +22,10 @@ class Login extends Component {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
-      this.setState({ validated: true });
+    } else {
       this.props.login({ username, password });
+    }
+    this.setState({ validated: true });
   }
 
   handleChange = event => {
@@ -38,46 +39,48 @@ class Login extends Component {
       <>
       <Container className="login-background vertical-center">
         <div>
-          <h4 className="mt-4 mb-4">Login</h4>
+          <h3 className="mt-4 mb-4 text-white">Log in</h3>
         </div>
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={e => this.handleSubmit(e)}
-          className="text-center"
-        >
-          <Form.Group controlId="validationCustom01">
-            {/* <Form.Label>Username</Form.Label> */}
-            <Form.Control
-              required
-              type="text"
-              placeholder="Username"
-              name="username"
-              value={username}
-              onChange={this.handleChange}
-            />
-            <Form.Control.Feedback type="invalid">
-              Username is required.
-            </Form.Control.Feedback>
-            <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="validationCustom02">
-            {/* <Form.Label>Password</Form.Label> */}
-            <Form.Control
-              required
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}              
-            />
-            <Form.Control.Feedback type="invalid">
-              Password is required.
-            </Form.Control.Feedback>
-            <Form.Control.Feedback>Well done!</Form.Control.Feedback>
-          </Form.Group>
-          <Button type="submit">Login!</Button>
-        </Form>
+        <div className="col-9">
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={e => this.handleSubmit(e)}
+            className="text-center"
+          >
+            <Form.Group controlId="validationCustom01">
+              {/* <Form.Label>Username</Form.Label> */}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+              />
+              <Form.Control.Feedback type="invalid">
+                Username is required.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="validationCustom02">
+              {/* <Form.Label>Password</Form.Label> */}
+              <Form.Control
+                required
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}              
+              />
+              <Form.Control.Feedback type="invalid">
+                Password is required.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Well done!</Form.Control.Feedback>
+            </Form.Group>
+            <Button type="submit" className="login-button">Login!</Button>
+          </Form>
+        </div>
       </Container>
 
       {/* <form onSubmit={this.handleFormSubmit}>

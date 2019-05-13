@@ -17,7 +17,14 @@
 
 .home-background {
   /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(20,0,0,0.5)),url(/images/wine.jpg); */
-  background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(225,238,195,0.6)),url(/images/wine.jpg);
+  /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(225,238,195,0.6)),url(/images/wine.jpg); */
+  /* background: linear-gradient(180deg, rgba(192, 72, 72, 0.6), rgba(72, 0, 72, 0.6)),url(/images/wine.jpg); */
+  background: linear-gradient(180deg,rgba(195, 20, 50, 0.6), #240b3699),url(/images/wine.jpg);
+  background-position-y: center;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  z-index: 1;
 }
 
 /* Color with transparency for cards in Home */
@@ -60,24 +67,29 @@ justify-content: center;
 
 .buttons-wine button {
   background: transparent;
-  border-color: rgb(255, 61, 61);
+  /* border-color: rgb(255, 61, 61); */
+  border-color:rgba(195, 20, 20, 1);
   color: black;
 }
 
 .buttons-wine button:focus {
-  box-shadow: 0 0 0 0.2rem rgb(255, 61, 61, .5);
+  box-shadow: 0 0 0 0.2rem rgb(195, 20, 20, .5);
 }
 
 .buttons-wine button:hover {
   color: white;
-  background-color: rgb(255, 61, 61);
-  border-color:rgb(255, 61, 61);
+  /* background-color: rgb(255, 61, 61);
+  border-color:rgb(255, 61, 61); */
+  background-color: rgb(195, 20, 20);
+  border-color:rgb(195, 20, 20);
 }
 
 .buttons-wine button:not(:disabled):not(.disabled):active {
   color: white;
-  background-color: rgb(255, 61, 61);
-  border-color:rgb(255, 61, 61);
+  /* background-color: rgb(255, 61, 61);
+  border-color:rgb(255, 61, 61); */
+  background-color: rgb(195, 20, 20);
+  border-color:rgb(195, 20, 20);
 }
 
 .test {
@@ -87,11 +99,36 @@ justify-content: center;
 /* ------------ LOGIN SCREEN ------------ */
 
 .login-background {
-  background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1));
-  background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));  
-  background-position-y: center;
-  background-size: cover;
-  background-position: center;
-  padding: 0;
-  z-index: 1;
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
+  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
+  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
+  background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+}
+
+.login-text {
+  color: white;
+}
+
+.login-button {
+  color: white;
+  border-color: white;
+  background: transparent;
+  margin-top: 2rem;
+  width: 70%;
+}
+
+.login-button:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255, 255, 255, .5);
+}
+
+.login-button:hover {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
+}
+
+.login-button:not(:disabled):not(.disabled):active {
+  color: rgb(195, 20, 20);
+  background-color: white;
+  border-color:white;
 }
