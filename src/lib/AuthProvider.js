@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import auth from "./auth-service";
+import edit from "./EditProfile-service";
 const { Consumer, Provider } = React.createContext();
 
 export { Consumer };
@@ -17,6 +18,7 @@ export const withAuth = Comp => {
                 user={authStore.user}
                 logout={authStore.logout}
                 isLoggedin={authStore.isLoggedin}
+                update={authStore.update}
                 {...this.props}
               />
             );
@@ -94,6 +96,25 @@ class AuthProvider extends Component {
       })
       .catch(() => {});
   };
+
+  update = user => {
+    const { username, email } = user;
+    console.log('UPDATE IN PROVIDER')
+    edit
+      .updateProfile({ username, email })
+      .then(user => {
+        this.setState({
+          isLoggedin: true,
+          user
+        });
+      })
+      .catch(({ response: { data: error } }) => {
+        this.setState({
+          message: error.statusMessage
+        });
+      });
+  }
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
@@ -105,7 +126,8 @@ class AuthProvider extends Component {
           user,
           login: this.login,
           logout: this.logout,
-          signup: this.signup
+          signup: this.signup,
+          update: this.update
         }}
       >
         {this.props.children}

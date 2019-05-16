@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import editProfile from "../lib/EditProfile-service"
 import { Form, Button, Container } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class EditProfile extends Component {
   state = {
@@ -12,24 +12,46 @@ class EditProfile extends Component {
     validated: false,
   }
 
-  // handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   const { username, email } = this.state
-  //   editProfile.updateProfile({ username, email })
-  // }
+  componentDidMount() {
+    console.log(this.props.user)
+  }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     const form = event.currentTarget;
     const { username, email } = this.state;
-
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     } else {
-      editProfile.updateProfile({ username, email });
+      event.preventDefault();
+      this.props.update({ username, email })
+      console.log(email)
+        return this.setState({
+          redirect: true,
+        })
     }
     this.setState({ validated: true });
   }
+
+  // handleSubmit = event => {
+  //   const form = event.currentTarget;
+  //   const { username, email } = this.state;
+  //   console.log(this.props)
+  //   if (form.checkValidity() === false) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //   } else {
+  //     event.preventDefault();
+  //     editProfile.updateProfile({ username, email })
+  //     .then(() => {
+  //       return this.setState({
+  //         redirect: true
+  //       })
+  //     })
+  //     .catch(error => console.log(error))
+  //   }
+  //   this.setState({ validated: true });
+  // }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -37,7 +59,11 @@ class EditProfile extends Component {
   }
 
   render() {
-    const { username, email, validated } = this.state;
+    const { username, email, validated, redirect } = this.state;
+    console.log(this.state, 'THIS IS STATE IN UPDTE')
+    if (redirect) {
+      return <Redirect to="/profile" />
+    }
     return (
       <Container className="edit-background vertical-center">
         <div>
@@ -47,7 +73,7 @@ class EditProfile extends Component {
           <Form
             noValidate
             validated={validated}
-            onSubmit={e => this.handleSubmit(e)}
+            onSubmit={this.handleSubmit}
             className="text-center"
           >
             <Form.Group controlId="validationCustom01">

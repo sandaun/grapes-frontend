@@ -16,7 +16,7 @@ class Login extends Component {
   //   this.props.login({ username, password });
   // };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     const form = event.currentTarget;
     const { username, password } = this.state;
 
@@ -24,6 +24,7 @@ class Login extends Component {
       event.preventDefault();
       event.stopPropagation();
     } else {
+      event.preventDefault();
       this.props.login({ username, password });
     }
     this.setState({ validated: true });
