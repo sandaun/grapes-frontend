@@ -7,6 +7,11 @@ class EditService {
       withCredentials: true
     })
   }
+
+  getProfile() {
+    return this.edit.get(`/profile`)
+      .then(({ data }) => data);
+  }
   
   updateProfile(user) {
     const { username, email } = user;

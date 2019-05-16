@@ -7,12 +7,10 @@ import { Container, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import Navbar from "../components/Navbar";
 
-
 class Profile extends Component {
 
   render() {
     const { username, email } = this.props.user;
-    console.log(this.props.user.email)
     return (
     <>
     <div className="home-header">

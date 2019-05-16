@@ -99,7 +99,6 @@ class AuthProvider extends Component {
 
   update = user => {
     const { username, email } = user;
-    console.log('UPDATE IN PROVIDER')
     edit
       .updateProfile({ username, email })
       .then(user => {

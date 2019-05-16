@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import editProfile from "../lib/EditProfile-service"
 import { Form, Button, Container } from 'react-bootstrap';
 import { Link, Redirect } from "react-router-dom";
 
 class EditProfile extends Component {
   state = {
-    username: this.props.user.username,
-    email: this.props.user.email || '',
+    username: '',
+    email: '',
     redirect: false,
-    validated: false,
+    validated: false
   }
 
-  componentDidMount() {
-    console.log(this.props.user)
+  componentDidMount(){
+    this.setState({
+      username: this.props.user.username,
+      email: this.props.user.email
+    })
   }
 
   handleSubmit = event => {
@@ -25,33 +27,14 @@ class EditProfile extends Component {
     } else {
       event.preventDefault();
       this.props.update({ username, email })
-      console.log(email)
-        return this.setState({
-          redirect: true,
-        })
+      this.setState({
+        redirect: true,
+        // username: username,
+        // email: email 
+      })
     }
-    this.setState({ validated: true });
+    this.setState({ validated: true, });
   }
-
-  // handleSubmit = event => {
-  //   const form = event.currentTarget;
-  //   const { username, email } = this.state;
-  //   console.log(this.props)
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   } else {
-  //     event.preventDefault();
-  //     editProfile.updateProfile({ username, email })
-  //     .then(() => {
-  //       return this.setState({
-  //         redirect: true
-  //       })
-  //     })
-  //     .catch(error => console.log(error))
-  //   }
-  //   this.setState({ validated: true });
-  // }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,12 +43,9 @@ class EditProfile extends Component {
 
   render() {
     const { username, email, validated, redirect } = this.state;
-    console.log(this.state, 'THIS IS STATE IN UPDTE')
-    if (redirect) {
-      return <Redirect to="/profile" />
-    }
     return (
       <Container className="edit-background vertical-center">
+        {redirect && <Redirect to="/profile" />}
         <div>
           <h3 className="mt-4 mb-4 text-white">Edit Profile</h3>
         </div>
@@ -77,7 +57,6 @@ class EditProfile extends Component {
             className="text-center"
           >
             <Form.Group controlId="validationCustom01">
-              {/* <Form.Label>Username</Form.Label> */}
               <Form.Control
                 required
                 type="text"
@@ -92,18 +71,13 @@ class EditProfile extends Component {
               <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom02">
-              {/* <Form.Label>Password</Form.Label> */}
               <Form.Control
-                // required
                 type="text"
                 placeholder="Email"
                 name="email"
                 value={email}
                 onChange={this.handleChange}              
               />
-              {/* <Form.Control.Feedback type="invalid">
-                Email is required.
-              </Form.Control.Feedback> */}
               <Form.Control.Feedback>Well done!</Form.Control.Feedback>
             </Form.Group>
             <Button type="submit" className="edit-button">Update</Button>

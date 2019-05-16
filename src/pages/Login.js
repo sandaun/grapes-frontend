@@ -10,12 +10,6 @@ class Login extends Component {
     validated: false,
   };
 
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   const { username, password } = this.state;
-  //   this.props.login({ username, password });
-  // };
-
   handleSubmit = event => {
     const form = event.currentTarget;
     const { username, password } = this.state;
@@ -50,7 +44,6 @@ class Login extends Component {
             className="text-center"
           >
             <Form.Group controlId="validationCustom01">
-              {/* <Form.Label>Username</Form.Label> */}
               <Form.Control
                 required
                 type="text"
@@ -65,7 +58,6 @@ class Login extends Component {
               <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom02">
-              {/* <Form.Label>Password</Form.Label> */}
               <Form.Control
                 required
                 type="password"
