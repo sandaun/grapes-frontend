@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import auth from "./auth-service";
 import edit from "./EditProfile-service";
+import { Spinner } from 'react-bootstrap';
 const { Consumer, Provider } = React.createContext();
 
 export { Consumer };
@@ -117,7 +118,11 @@ class AuthProvider extends Component {
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
-      <div>Loading</div>
+      <div className="vertical-center main-background">
+        <Spinner animation="border" role="status" variant="light">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
     ) : (
       <Provider
         value={{

@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container, Card, Button, Spinner } from 'react-bootstrap';
 
 
 class WineList extends Component {
 
   state = {
     wineList: [],
+    isLoading: true,
   }
 
   async componentDidMount() {
     const { item } = this.props.match.params;
-    const search = await Pairing.searchWine({ item }).then(( data ) => data.pairedWines);
+    const search = await Pairing.searchWine({ item }).then(( data ) => data);
+    const { pairedWines } = search;
     this.setState({
-      wineList: search,
+      wineList: pairedWines,
+      isLoading: false,
     })
   }
 
@@ -27,9 +30,15 @@ class WineList extends Component {
   }
 
   render () {
-    const { wineList } = this.state
+    const { wineList, isLoading } = this.state
     const { item } = this.props.match.params;
-    return (
+    return isLoading ? (
+      <div className="vertical-center list-background">
+        <Spinner animation="border" role="status" variant="light">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    ) : (
       <>
       <Container className="list-background vertical-center">
         <div className="mt-4">

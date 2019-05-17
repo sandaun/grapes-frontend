@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container, Card, Button, Spinner } from 'react-bootstrap';
 
 class FoodList extends Component {
 
   state = {
     foodList: [],
+    isLoading: true,
   }
 
   async componentDidMount() {
@@ -14,6 +15,7 @@ class FoodList extends Component {
     const search = await Pairing.searchFood({ item }).then(( data ) => data.pairings);
     this.setState({
       foodList: search,
+      isLoading: false,
     })
   }
 
@@ -26,9 +28,16 @@ class FoodList extends Component {
   }
 
   render () {
-    const { foodList } = this.state
+    const { foodList, isLoading } = this.state
     const { item } = this.props.match.params;
-    return (
+
+    return isLoading ? (
+      <div className="vertical-center list-background">
+        <Spinner animation="border" role="status" variant="light">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    ) : (
       <>
       <Container className="list-background vertical-center">
         <div className="mt-4">

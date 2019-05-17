@@ -29,11 +29,12 @@ class EditProfile extends Component {
       this.props.update({ username, email })
       this.setState({
         redirect: true,
+        validated: true,
         // username: username,
         // email: email 
       })
     }
-    this.setState({ validated: true, });
+    // this.setState({ validated: true, });
   }
 
   handleChange = (event) => {
