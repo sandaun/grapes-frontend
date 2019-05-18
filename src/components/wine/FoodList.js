@@ -7,14 +7,17 @@ class FoodList extends Component {
 
   state = {
     foodList: [],
+    foodUrlImage: [],
     isLoading: true,
   }
 
   async componentDidMount() {
     const { item } = this.props.match.params;
-    const search = await Pairing.searchFood({ item }).then(( data ) => data.pairings);
+    const search = await Pairing.searchFood({ item }).then(( data ) => data);
+    const { pairedFoodwithWine, foodUrlArray } = search;
     this.setState({
-      foodList: search,
+      foodList: pairedFoodwithWine,
+      foodUrlImage: foodUrlArray,
       isLoading: false,
     })
   }
