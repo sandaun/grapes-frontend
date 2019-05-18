@@ -14,8 +14,8 @@ class EditService {
   }
   
   updateProfile(user) {
-    const { username, email } = user;
-    return this.edit.post('/profile/update', { username, email })
+    const { username, name, email } = user;
+    return this.edit.post('/profile/update', { username, name, email })
       .then(({ data }) => data);
   }
 }

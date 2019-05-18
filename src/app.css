@@ -20,9 +20,6 @@
 }
 
 .home-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(20,0,0,0.5)),url(/images/wine.jpg); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(225,238,195,0.6)),url(/images/wine.jpg); */
-  /* background: linear-gradient(180deg, rgba(192, 72, 72, 0.6), rgba(72, 0, 72, 0.6)),url(/images/wine.jpg); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 0.6), rgba(36, 11, 54, 0.6)),url(/images/wine.jpg);
   background-position-y: center;
   background-size: cover;
@@ -49,15 +46,11 @@ justify-content: center;
 .home-header h1 {
   margin: 0 auto;
   color: white;
-  /* color: rgb(255, 61, 61) */
-  /* text-shadow: -1px 0 whitesmoke, 0 1px whitesmoke, 1px 0 whitesmoke, 0 -1px whitesmoke; */
 }
 
 .home-header p {
   margin-top: 10px;
   color: white;
-  /* color: rgb(255, 61, 61) */
-  /* text-shadow: -1px 0 whitesmoke, 0 1px whitesmoke, 1px 0 whitesmoke, 0 -1px whitesmoke; */
 }
 
 .home-wrap-cards {
@@ -71,7 +64,6 @@ justify-content: center;
 
 .buttons-wine button {
   background: transparent;
-  /* border-color: rgb(255, 61, 61); */
   border-color:rgba(195, 20, 20, 1);
   color: black;
 }
@@ -82,16 +74,12 @@ justify-content: center;
 
 .buttons-wine button:hover {
   color: white;
-  /* background-color: rgb(255, 61, 61);
-  border-color:rgb(255, 61, 61); */
   background-color: rgb(195, 20, 20);
   border-color:rgb(195, 20, 20);
 }
 
 .buttons-wine button:not(:disabled):not(.disabled):active {
   color: white;
-  /* background-color: rgb(255, 61, 61);
-  border-color:rgb(255, 61, 61); */
   background-color: rgb(195, 20, 20);
   border-color:rgb(195, 20, 20);
 }
@@ -103,9 +91,6 @@ justify-content: center;
 /* ------------ LOGIN SCREEN ------------ */
 
 .login-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
-  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }
 
@@ -144,9 +129,6 @@ justify-content: center;
 /* ------------ SIGNUP SCREEN ------------ */
 
 .signup-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
-  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }
 
@@ -182,12 +164,34 @@ justify-content: center;
   color: #ffc107
 }
 
+/* ------------ PROFILE SCREEN ------------ */
+.profile-background {
+  background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+
+}
+
+.profile-text {
+  color: rgb(195, 20, 20);
+}
+
+.profile-header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  height: 30%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-header h1 {
+  margin: 0 auto;
+  color: white;
+}
+
 /* ------------ EDIT PROFILE SCREEN ------------ */
 
 .edit-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
-  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }
 
@@ -240,9 +244,6 @@ justify-content: center;
 /* ------------ FOOD AND WINE LISTS SCREEN ------------ */
 
 .list-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
-  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }
 
@@ -253,8 +254,5 @@ justify-content: center;
 /* ------------ LOADING MAIN SCREEN ------------ */
 
 .main-background {
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(20,0,0,1)); */
-  /* background: linear-gradient(180deg, rgba(220,53,69,1), rgba(225,238,195,1));   */
-  /* background: linear-gradient(180deg, rgb(192, 72, 72), rgb(72, 0, 72)); */
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }

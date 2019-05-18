@@ -99,9 +99,9 @@ class AuthProvider extends Component {
   };
 
   update = user => {
-    const { username, email } = user;
+    const { username, name, email } = user;
     edit
-      .updateProfile({ username, email })
+      .updateProfile({ username, name, email })
       .then(user => {
         this.setState({
           isLoggedin: true,

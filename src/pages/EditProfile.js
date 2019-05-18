@@ -8,6 +8,7 @@ class EditProfile extends Component {
   state = {
     username: '',
     email: '',
+    name: '',
     redirect: false,
     validated: false
   }
@@ -15,27 +16,26 @@ class EditProfile extends Component {
   componentDidMount(){
     this.setState({
       username: this.props.user.username,
-      email: this.props.user.email
+      email: this.props.user.email,
+      name: this.props.user.name,
     })
   }
 
   handleSubmit = event => {
     const form = event.currentTarget;
-    const { username, email } = this.state;
+    const { username, name, email } = this.state;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     } else {
       event.preventDefault();
-      this.props.update({ username, email })
+      console.log(name)
+      this.props.update({ username, name, email })
       this.setState({
         redirect: true,
         validated: true,
-        // username: username,
-        // email: email 
       })
     }
-    // this.setState({ validated: true, });
   }
 
   handleChange = (event) => {
@@ -44,7 +44,7 @@ class EditProfile extends Component {
   }
 
   render() {
-    const { username, email, validated, redirect } = this.state;
+    const { username, name, email, validated, redirect } = this.state;
     return (
       <Container className="edit-background vertical-center">
         <Back />
@@ -74,6 +74,16 @@ class EditProfile extends Component {
               <Form.Control.Feedback>Nice Username!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom02">
+              <Form.Control
+                type="text"
+                placeholder="Name"
+                name="name"
+                value={name}
+                onChange={this.handleChange}              
+              />
+              <Form.Control.Feedback>Well done!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="validationCustom03">
               <Form.Control
                 type="text"
                 placeholder="Email"

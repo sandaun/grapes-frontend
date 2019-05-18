@@ -10,7 +10,6 @@ class Pairing {
 
   searchFood(wine) {
     const { item } = wine;
-    console.log(item, typeof(item));
     return this.pairing
       .get('/wine/foodlist/?wine=' + item)
       .then(({ data }) => data);
@@ -18,7 +17,6 @@ class Pairing {
 
   searchWine(food) {
     const { item } = food;
-    console.log(item, typeof(item));
     return this.pairing
       .get('/wine/winelist/?food=' + item)
       .then(({ data }) => data);
