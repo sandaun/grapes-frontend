@@ -247,12 +247,49 @@ justify-content: center;
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
 }
 
+.list-cards {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 .list-text {
   color: #ffc107
+}
+
+.list-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-buttons button {
+  background: transparent;
+  border-color:rgba(195, 20, 20, 1);
+  color: black;
+}
+
+.list-buttons button:focus {
+  box-shadow: 0 0 0 0.2rem rgb(195, 20, 20, .5);
+}
+
+.list-buttons button:hover {
+  color: white;
+  background-color: rgb(195, 20, 20);
+  border-color:rgb(195, 20, 20);
+}
+
+.list-buttons button:not(:disabled):not(.disabled):active {
+  color: white;
+  background-color: rgb(195, 20, 20);
+  border-color:rgb(195, 20, 20);
 }
 
 /* ------------ LOADING MAIN SCREEN ------------ */
 
 .main-background {
   background: linear-gradient(180deg,rgba(195, 20, 50, 1), #240b36 );
+}
+
+/* ------------ SEARCH MAIN SCREEN ------------ */
+
+.searchitem-links {
+  color: rgb(195, 20, 20);
 }

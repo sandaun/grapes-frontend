@@ -49,14 +49,13 @@ class WineList extends Component {
           {wineList.map((wine, index) => {
             return (
               <div key={index}>
-                <Card style={{ width: '18rem' }} className="mt-3 mb-3">
+                <Card style={{ width: '18rem' }} className="mt-3 mb-3 list-cards">
                   <Card.Img variant="top" src="/images/wine.jpg" />
                   <Card.Body>
-                    <Card.Title>{this.capitalizeWineNames(wine)}</Card.Title>
-                    <Card.Text>
-                      {this.capitalizeWineNames(wine)}
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Card.Title className="text-center">{this.capitalizeWineNames(wine)}</Card.Title>
+                    <div className="list-buttons justify-content-center">
+                      <Button variant="primary">Get Wine!</Button>
+                    </div>
                   </Card.Body>
                 </Card>
               </div>

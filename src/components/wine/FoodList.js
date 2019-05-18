@@ -32,7 +32,7 @@ class FoodList extends Component {
   }
 
   render () {
-    const { foodList, isLoading } = this.state
+    const { foodList, isLoading, foodUrlImage } = this.state
     const { item } = this.props.match.params;
 
     return isLoading ? (
@@ -63,14 +63,13 @@ class FoodList extends Component {
           {foodList.map((food, index) => {
             return (
               <div key={index}>
-                <Card style={{ width: '18rem' }} className="mt-3 mb-3">
-                  <Card.Img variant="top" src="/images/wine.jpg" />
+                <Card style={{ width: '18rem' }} className="mt-3 mb-3 list-cards">
+                  <Card.Img variant="top" src={foodUrlImage[0]} />
                   <Card.Body>
-                    <Card.Title>{this.capitalizeFoodNames(food)}</Card.Title>
-                    <Card.Text>
-                      {this.capitalizeFoodNames(food)}
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Card.Title className="text-center">{this.capitalizeFoodNames(food)}</Card.Title>
+                    <div className="list-buttons justify-content-center">
+                      <Button variant="primary">Get recipe!</Button>
+                    </div>
                   </Card.Body>
                 </Card>
               </div>

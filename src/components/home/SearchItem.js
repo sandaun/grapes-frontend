@@ -57,23 +57,9 @@ class SearchItem extends Component {
       <>
         {itemArray.map((item, index) => <ListGroup key={index} variant='flush'>
           <ListGroup.Item>
-            <Link to={`/${title}/${item}`}>{item}</Link>
+            <Link to={`/${title}/${item}`} className="searchitem-links">{item}</Link>
           </ListGroup.Item>
         </ListGroup>)}
-
-        {/* <div>{title}</div> */}
-        {/* <form onSubmit={this.handleFormSubmit}>
-          <label>{title}</label>
-          <select
-            type="text"
-            name="item"
-            value={item}
-            onChange={this.handleChange}
-          >
-            {itemArray.map((item,y) => <option key={y} value={item}>{item}</option>)}
-          </select>
-          <input type="submit" value="Go!" />
-        </form> */}
       </>
     );
   }
