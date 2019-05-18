@@ -41,11 +41,11 @@ class Profile extends Component {
 
 
 
-      <Navbar />
+      {/* <Navbar />
       <div>
         <h1>Welcome {this.props.user.username}</h1>
         <Link to="/update">Update profile</Link>
-      </div>
+      </div> */}
       <Footer />
       </>
     );

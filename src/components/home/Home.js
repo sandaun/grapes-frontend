@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import WineModal from "./wine-modal"
 import FoodModal from "./food-modal"
 import { withRouter } from "react-router-dom";
+import { withAuth } from "../../lib/AuthProvider";
 import { Container, Button, Card, Dropdown } from 'react-bootstrap';
 import Footer from "../Footer"
 
@@ -24,6 +25,8 @@ class Home extends Component {
   render () {
     let modalWineClose = () => this.setState({ modalWineShow: false });
     let modalFoodClose = () => this.setState({ modalFoodShow: false });
+    const { logout } = this.props;
+    console.log(logout);
     return (
       <>
         <div className="home-header">
@@ -41,6 +44,7 @@ class Home extends Component {
                 <Dropdown.Item href="/login">Log in</Dropdown.Item>
                 <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                <Dropdown.Item onClick={logout}>Log out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -152,6 +156,6 @@ class Home extends Component {
   }
 }
 
-export default withRouter(Home);
+export default withAuth(withRouter(Home));
 
 
