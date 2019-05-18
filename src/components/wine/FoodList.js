@@ -25,7 +25,6 @@ class FoodList extends Component {
 
   getFoodUrlImages = (index) => {
     const { foodUrlImage } = this.state;
-    console.log(foodUrlImage)
     return foodUrlImage[index];
   }
 
