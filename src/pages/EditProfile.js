@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Form, Button, Container } from 'react-bootstrap';
 import { Link, Redirect } from "react-router-dom";
+import Back from "../components/BackButton";
 
 class EditProfile extends Component {
   state = {
@@ -46,6 +47,7 @@ class EditProfile extends Component {
     const { username, email, validated, redirect } = this.state;
     return (
       <Container className="edit-background vertical-center">
+        <Back />
         {redirect && <Redirect to="/profile" />}
         <div>
           <h3 className="mt-4 mb-4 text-white">Edit Profile</h3>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { Container, Card, Button, Spinner } from 'react-bootstrap';
-
+import Back from "../BackButton";
 
 class WineList extends Component {
 
@@ -41,7 +41,8 @@ class WineList extends Component {
     ) : (
       <>
       <Container className="list-background vertical-center">
-        <div className="mt-4">
+        <Back />
+        <div className="mt-4 text-center" style={{ width: '18rem' }}>
           <h4 className="text-white">Pairing wines for <span className="list-text">{item}</span> food</h4>
         </div>
         <div>

@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer"
 import { Container, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import Back from "../components/BackButton";
 
 
 import Navbar from "../components/Navbar";
@@ -18,6 +19,7 @@ class Profile extends Component {
       {/* <p>Find the perfect lover for your wine and food</p> */}
     </div>
     <Container className="login-background vertical-center">
+      <Back />
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="/images/wine.jpg" />
         <Card.Body>

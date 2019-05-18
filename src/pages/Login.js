@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import { Form, Button, Container } from 'react-bootstrap';
+import Back from "../components/BackButton";
+
 
 class Login extends Component {
   state = {
@@ -33,6 +35,7 @@ class Login extends Component {
     const { username, password, validated } = this.state;
     return (
       <Container className="login-background vertical-center">
+        <Back />
         <div>
           <h3 className="mt-4 mb-4 text-white">Log in</h3>
         </div>
