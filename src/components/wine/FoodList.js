@@ -23,6 +23,12 @@ class FoodList extends Component {
     })
   }
 
+  getFoodUrlImages = (index) => {
+    const { foodUrlImage } = this.state;
+    console.log(foodUrlImage)
+    return foodUrlImage[index];
+  }
+
   capitalizeFoodNames = (text) => {
     text = text.toLowerCase()
     .split(' ')
@@ -32,7 +38,7 @@ class FoodList extends Component {
   }
 
   render () {
-    const { foodList, isLoading, foodUrlImage } = this.state
+    const { foodList, isLoading } = this.state
     const { item } = this.props.match.params;
 
     return isLoading ? (
@@ -48,23 +54,12 @@ class FoodList extends Component {
         <div className="mt-4 text-center" style={{ width: '18rem' }}>
           <h4 className="text-white">Pairing food for <span className="list-text">{item}</span> wines</h4>
         </div>
-        {/* <div>
-            <ListGroup variant="" defaultActiveKey="#link">
-              {foodList.map((food, index) => {
-                return <ListGroup.Item className="test" action href="#link1" key={index}>
-                  {food}
-                  <img src="/images/wine.jpg" style={{ width: '18rem' }} alt='food'/>
-                </ListGroup.Item>
-              })}
-            </ListGroup>
-        </div> */}
-
         <div>
           {foodList.map((food, index) => {
             return (
               <div key={index}>
                 <Card style={{ width: '18rem' }} className="mt-3 mb-3 list-cards">
-                  <Card.Img variant="top" src={foodUrlImage[0]} />
+                  <Card.Img variant="top" src={this.getFoodUrlImages(index)} />
                   <Card.Body>
                     <Card.Title className="text-center">{this.capitalizeFoodNames(food)}</Card.Title>
                     <div className="list-buttons justify-content-center">
