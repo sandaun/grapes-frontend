@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import WineModal from "./wine-modal"
 import FoodModal from "./food-modal"
 import { withRouter } from "react-router-dom";
-import { Container, Button, Card } from 'react-bootstrap';
+import { Container, Button, Card, Dropdown } from 'react-bootstrap';
 import Footer from "../Footer"
 
 
@@ -31,6 +31,19 @@ class Home extends Component {
           <p>Find the perfect lover for your wine and food</p>
         </div>
         <Container className="home-background vertical-center">
+          <div>
+            <Dropdown className="fixed-top ml-3 mt-3">
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
+                Access
+              </Dropdown.Toggle>
+            
+              <Dropdown.Menu>
+                <Dropdown.Item href="/login">Log in</Dropdown.Item>
+                <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
+                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
           <div className="home-wrap-cards">
             <Card style={{ width: '18rem' }} bg="" text="dark" className="mb-2 home-cards">                  
               <Card.Body>

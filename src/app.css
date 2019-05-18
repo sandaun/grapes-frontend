@@ -15,6 +15,10 @@
   height: 50%;
 }
 
+.home-dropdown {
+  position: absolute;
+}
+
 .home-background {
   /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(20,0,0,0.5)),url(/images/wine.jpg); */
   /* background: linear-gradient(180deg, rgba(220,53,69,0.6), rgba(225,238,195,0.6)),url(/images/wine.jpg); */
