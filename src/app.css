@@ -293,3 +293,21 @@ justify-content: center;
 .searchitem-links {
   color: rgb(195, 20, 20);
 }
+
+/* ------------ RECIPE SCREEN ------------ */
+
+.recipe-background {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.recipe-background-lines {
+  background: transparent;
+}
+
+.recipe-title-text {
+  color: rgb(195, 20, 20);
+}
+
+.recipe-ingredients {
+  color: rgb(195, 20, 20);
+}

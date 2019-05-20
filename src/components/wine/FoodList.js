@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { Container, Card, Button, Spinner } from 'react-bootstrap';
 import Back from "../BackButton";
+import Recipes from "../wine/foodRecipes";
 
 class FoodList extends Component {
 
@@ -10,6 +11,8 @@ class FoodList extends Component {
     foodList: [],
     foodUrlImage: [],
     isLoading: true,
+    isRenderingFoodList: true,
+    individualFoodText: '',
   }
 
   async componentDidMount() {
@@ -46,7 +49,8 @@ class FoodList extends Component {
           <span className="sr-only">Loading...</span>
         </Spinner>
       </div>
-    ) : (
+    ) : this.state.isRenderingFoodList ? 
+    ( 
       <>
       <Container className="list-background vertical-center">
         <Back />
@@ -64,7 +68,8 @@ class FoodList extends Component {
                   <Card.Body>
                     <Card.Title className="text-center">{this.capitalizeFoodNames(food)}</Card.Title>
                     <div className="list-buttons justify-content-center">
-                      <Button variant="primary">Get recipe!</Button>
+                      <Button onClick={() => this.setState({ isRenderingFoodList: false, individualFoodText: food })} variant="primary">Get recipe!</Button>
+                      {console.log(this.state.individualFoodText)}
                     </div>
                   </Card.Body>
                 </Card>
@@ -74,7 +79,9 @@ class FoodList extends Component {
         </div>
       </Container>
       </>
-    );
+    ) : (
+          <Recipes individualFood={this.state.individualFoodText} />
+        );
   }
 }
 
