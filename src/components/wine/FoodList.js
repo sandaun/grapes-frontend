@@ -69,7 +69,6 @@ class FoodList extends Component {
                     <Card.Title className="text-center">{this.capitalizeFoodNames(food)}</Card.Title>
                     <div className="list-buttons justify-content-center">
                       <Button onClick={() => this.setState({ isRenderingFoodList: false, individualFoodText: food })} variant="primary">Get recipe!</Button>
-                      {console.log(this.state.individualFoodText)}
                     </div>
                   </Card.Body>
                 </Card>
