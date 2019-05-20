@@ -58,7 +58,9 @@ class FoodList extends Component {
             return (
               <div key={index}>
                 <Card style={{ width: '18rem' }} className="mt-3 mb-3 list-cards">
-                  <Card.Img variant="top" src={this.getFoodUrlImages(index)} />
+                  <Card.Img variant="top" 
+                    src={this.getFoodUrlImages(index) === null ? '/images/food/foodDefault.jpg' : this.getFoodUrlImages(index)} 
+                  />
                   <Card.Body>
                     <Card.Title className="text-center">{this.capitalizeFoodNames(food)}</Card.Title>
                     <div className="list-buttons justify-content-center">

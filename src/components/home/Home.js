@@ -17,16 +17,10 @@ class Home extends Component {
     food: ''
   };
 
-  // handleClick = (event) => {
-  //   console.log('hello');
-  //   return <Link to={"/login"}></Link>
-  // }
-
   render () {
     let modalWineClose = () => this.setState({ modalWineShow: false });
     let modalFoodClose = () => this.setState({ modalFoodShow: false });
     const { logout } = this.props;
-    console.log(logout);
     return (
       <>
         <div className="home-header">
@@ -51,8 +45,6 @@ class Home extends Component {
           <div className="home-wrap-cards">
             <Card style={{ width: '18rem' }} bg="" text="dark" className="mb-2 home-cards">                  
               <Card.Body>
-                {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
-                {/* <Card.ImgOverlay> */}
                 <Card.Title>WINE</Card.Title>
                 <Card.Text>
                   Match your wine with food!
@@ -71,14 +63,11 @@ class Home extends Component {
                       White <span role="img" aria-label="WhiteWine">🥂</span>
                     </Button>
                   </div>
-                {/* </Card.ImgOverlay> */}
               </Card.Body>
             </Card>
 
             <Card style={{ width: '18rem' }} text="dark" className="mb-2 home-cards">                  
               <Card.Body>
-                {/* <Card.Img src="images/wine_glass.jpg" alt="Card image" /> */}
-                {/* <Card.ImgOverlay> */}
                 <Card.Title>FOOD</Card.Title>
                 <Card.Text>
                   Match your food with wine!
@@ -125,7 +114,6 @@ class Home extends Component {
                       Dessert <span role="img" aria-label="Dessert">🧁</span>
                     </Button>
                   </div>
-                {/* </Card.ImgOverlay> */}
               </Card.Body>
             </Card>
 
@@ -142,11 +130,7 @@ class Home extends Component {
                 title={this.state.title}
                 food={this.state.food}
               />
-                        
-            {/* <div>
-              <Button onClick={() => {this.props.history.push('/login')} }>Login</Button>
-              <div><br></br><Link to={"/signup"}> or Sign up</Link></div>
-            </div> */}
+
           </div>
         </Container>
       <Footer />
