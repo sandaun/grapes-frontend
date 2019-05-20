@@ -38,7 +38,6 @@ class FoodList extends Component {
     return isLoading ? (
       <div className="vertical-center list-background">
         <Spinner animation="border" role="status" variant="light">
-          <p>this is recipes</p>
           <span className="sr-only">Loading...</span>
         </Spinner>
       </div>
