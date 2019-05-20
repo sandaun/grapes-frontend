@@ -39,6 +39,13 @@ class FoodList extends Component {
     return text
   }
 
+  isRenderingFoodList = () => {
+    console.log('this is foodlist again')
+    this.setState({
+      isRenderingFoodList: true,
+    })
+  }
+
   render () {
     const { foodList, isLoading } = this.state
     const { item } = this.props.match.params;
@@ -79,7 +86,7 @@ class FoodList extends Component {
       </Container>
       </>
     ) : (
-          <Recipes individualFood={this.state.individualFoodText} />
+          <Recipes individualFood={this.state.individualFoodText} isRenderingFoodList={this.isRenderingFoodList} />
         );
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Recipes from "../../lib/recipe-service";
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
-import Back from "../BackButton";
 
 class FoodList extends Component {
 
@@ -31,6 +30,10 @@ class FoodList extends Component {
     return text
   }
 
+  handleBack = () =>{
+    this.props.isRenderingFoodList();
+  }
+
   render () {
     const { searchRecipiesResults, searchBaseUri, isLoading } = this.state
     const { individualFood } = this.props;
@@ -44,7 +47,9 @@ class FoodList extends Component {
     ) : (
       <>
       <Container className="list-background vertical-center">
-        <Back />
+        <div onClick={this.handleBack} className="fixed-top ml-3 mt-3 text-white">
+          <i className="fa fa-arrow-circle-left fa-3x"></i>
+        </div>
         <div className="mt-4 text-center" style={{ width: '18rem' }}>
           <h4 className="text-white">Recipies for <span className="list-text">{individualFood}</span></h4>
         </div>
