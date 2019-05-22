@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
-import { Container, Card, Button, Spinner } from 'react-bootstrap';
+import { Container, Card, Spinner } from 'react-bootstrap';
 import Back from "../BackButton";
 
 class WineList extends Component {
@@ -53,9 +53,9 @@ class WineList extends Component {
                   <Card.Img variant="top" src="/images/wine.jpg" />
                   <Card.Body>
                     <Card.Title className="text-center">{this.capitalizeWineNames(wine)}</Card.Title>
-                    <div className="list-buttons justify-content-center">
+                    {/* <div className="list-buttons justify-content-center">
                       <Button variant="primary">Get Wine!</Button>
-                    </div>
+                    </div> */}
                   </Card.Body>
                 </Card>
               </div>
@@ -63,21 +63,6 @@ class WineList extends Component {
           })}
         </div>
       </Container>
-
-
-      {/* <Container>
-        <div>{`This is wineList with ${item} ingredient`}</div>
-        <div>
-            <ListGroup variant="" defaultActiveKey="#link">
-              {wineList.map((wine, index) => {
-                return <ListGroup.Item className="test" action href="#link1" key={index}>
-                  {wine}
-                  <img src="/images/wine.jpg" style={{ width: '18rem' }} alt='wine'/>
-                </ListGroup.Item>
-              })}
-            </ListGroup>
-        </div>
-      </Container> */}
       </>
     );
   }

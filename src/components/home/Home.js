@@ -4,8 +4,6 @@ import FoodModal from "./food-modal"
 import { withRouter } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import { Container, Button, Card, Dropdown } from 'react-bootstrap';
-import Footer from "../Footer"
-
 
 class Home extends Component {
 
@@ -133,8 +131,6 @@ class Home extends Component {
 
           </div>
         </Container>
-      <Footer />
-        
       </>
     );
   }

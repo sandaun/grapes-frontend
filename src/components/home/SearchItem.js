@@ -32,10 +32,10 @@ class SearchItem extends Component {
       itemArray = ['risotto', 'paella'];
     }
     else if (food === 'fish') {
-      itemArray = ['calamari', 'gouda', 'stilton'];
+      itemArray = ['calamari', 'octopus', 'crab'];
     }
     else if (food === 'cuisine') {
-      itemArray = ['Italian', 'Spanish', 'American', 'Japanese', 'Chinese', 'Thai', 'Mexican', 'French', 'German'];
+      itemArray = ['Italian', 'Spanish', 'Japanese', 'Chinese', 'Thai', 'Mexican', 'French', 'German'];
     }
     else if (food === 'dessert') {
       itemArray = ['chocolate', 'cake', 'stilton'];

@@ -8,11 +8,9 @@ class Buttonsbottom extends Component {
   render() {
     const { isLoggedin } = this.props;
     if (isLoggedin) {
-      console.log('im loggedin')
       return (
 
         <Nav className="justify-content-center white fixed-bottom">
-          <p>THIS IS THE FOOTER</p>
           <NavItem>
             <Link to='/contacts'><Image src="/images/1.png" /></Link>
           </NavItem>

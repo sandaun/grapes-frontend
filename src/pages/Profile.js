@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import Footer from "../components/Footer"
 import { Container, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Back from "../components/BackButton";
+import Recipes from "../lib/recipe-service";
 
 class Profile extends Component {
 
+  state = {
+    favoriteRecipes: [],
+  }
+
+  async componentDidMount() {
+    const getFavoriteRecipes = await Recipes.readFavorites().then(( data ) => data);
+    this.setState({
+      favoriteRecipes: getFavoriteRecipes,
+    })
+  }
+
   render() {
     const { username, email, name } = this.props.user;
+    const { favoriteRecipes } = this.state;
     return (
     <>
     <div className="profile-header">
@@ -23,12 +35,12 @@ class Profile extends Component {
         <ListGroup className="list-group-flush">
           <ListGroupItem>Name: {name}</ListGroupItem>
           <ListGroupItem>Email: {email}</ListGroupItem>
+          <ListGroupItem>Favorite recipies: {favoriteRecipes.length}</ListGroupItem>
         </ListGroup>
         <Card.Body className="text-center">
           <Card.Link href="/update" className="profile-text">Update Profile</Card.Link>
         </Card.Body>
       </Card>
-      <Footer />
     </Container>
       </>
     );

@@ -29,7 +29,6 @@ class EditProfile extends Component {
       event.stopPropagation();
     } else {
       event.preventDefault();
-      console.log(name)
       this.props.update({ username, name, email })
       this.setState({
         redirect: true,

@@ -24,22 +24,10 @@ class App extends Component {
     redirect: false
   }
 
-  // handleItem = (item, title) => {
-  //   console.log(`This is ${item} from APP`)
-  //   this.setState({
-  //     item: item,
-  //   })
-  //   if (title === 'Wine') {
-  //     this.props.history.push('/wine');
-  //   }
-  // };
-
   render() {
     return (
       <AuthProvider>
         <div>
-          {/* <h1>Welcome to grapes!</h1> */}
-          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/wine/:item" component={FoodList} />
@@ -49,8 +37,6 @@ class App extends Component {
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
             <Route path='*' exact={true} component={NotFound} />
-            {/* <Route path="/wine" render={(props) => <SearchItem {...props} title='Wine' />}/> {/* THIS IS HOW TO PASS PROPS IN ROUTE */}
-            {/* <Route path="/food" render={(props) => <SearchItem {...props} title='Food' />}/> */} */}
           </Switch>
         </div>
       </AuthProvider>

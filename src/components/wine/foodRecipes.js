@@ -11,16 +11,13 @@ class FoodList extends Component {
     searchRecipiesResults: [],
     isLoading: true,
     favoriteRecipes: [],
-    isFavorited: true,
   }
 
   async componentDidMount() {
     const { individualFood } = this.props;
     const search = await Recipes.seaechRecipes({ individualFood }).then(( data ) => data);
     const { results, baseUri } = search;
-    console.log(results);
     const getFavoriteRecipes = await Recipes.readFavorites().then(( data ) => data);
-    console.log(getFavoriteRecipes, 'this should be favorites');
     this.setState({
       searchBaseUri: baseUri,
       searchRecipiesResults: results,
@@ -41,15 +38,9 @@ class FoodList extends Component {
     this.props.isRenderingFoodList();
   }
 
-  isRecipeFavorited = (recipeId) => {
-    console.log(this.state.isFavorited)
-    this.state.isFavorited ? this.favoriteRecipe(recipeId) : this.deleteRecipe(recipeId);
-  }
-
   favoriteRecipe = async (recipeId) => {
     const { favoriteRecipes } = this.state;    
       await Recipes.addFavoriteRecipe( recipeId ).then(( data ) => data);
-      console.log(favoriteRecipes, 'this is state favorite recipe array');
       this.setState({
         favoriteRecipes: [...favoriteRecipes, recipeId],
       })
@@ -68,10 +59,10 @@ class FoodList extends Component {
     }
   }
 
+
   render () {
     const { searchRecipiesResults, searchBaseUri, isLoading } = this.state
     const { individualFood } = this.props;
-    console.log(this.state.favoriteRecipes, 'render')
 
     return isLoading ? (
       <div className="vertical-center list-background">
@@ -103,11 +94,29 @@ class FoodList extends Component {
                     <ListGroupItem className="recipe-background-lines"><span className="recipe-ingredients">Servings:</span> {recipies.servings} people</ListGroupItem>
                     <ListGroupItem className="recipe-background-lines"><span className="recipe-ingredients">Ready in:</span> {recipies.readyInMinutes} minutes</ListGroupItem>
                   </ListGroup>
-                  <div className="list-buttons justify-content-center mt-2 mb-2">
-                    <Button onClick={() => this.isRecipeFavorited(recipies.id)} variant="primary">Favorite</Button>
-                  </div>
-                  <div className="list-buttons justify-content-center mt-2 mb-2">
-                    <Button onClick={() => this.deleteRecipe(recipies.id)} variant="primary">DELETE</Button>
+                  <div className="list-favorite-buttons">
+                    <div className="list-buttons justify-content-center mt-2 mb-2 w-100">
+                      <Button 
+                        onClick={() => {
+                            this.favoriteRecipe(recipies.id);
+                          } 
+                        }
+                        className="w-75"
+                        variant="primary">
+                        Add
+                      </Button>
+                    </div>
+                    <div className="list-buttons justify-content-center mt-2 mb-2 w-100">
+                      <Button 
+                        onClick={() => {
+                            this.deleteRecipe(recipies.id);
+                          } 
+                        }
+                        className="w-75"
+                        variant="primary">
+                        Remove
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>

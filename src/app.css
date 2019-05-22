@@ -311,3 +311,9 @@ justify-content: center;
 .recipe-ingredients {
   color: rgb(195, 20, 20);
 }
+
+.list-favorite-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
