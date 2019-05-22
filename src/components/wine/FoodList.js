@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { Container, Card, Button, Spinner } from 'react-bootstrap';
 import Back from "../BackButton";
-import Recipes from "./FoodRecipes";
+import Recipes from "./foodRecipes";
 
 class FoodList extends Component {
 
