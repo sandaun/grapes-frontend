@@ -27,7 +27,7 @@ class Profile extends Component {
     </div>
     <Container className="profile-background vertical-center">
       <Back />
-      <Card style={{ width: '18rem' }}>
+      <Card className="mt-5" style={{ width: '18rem' }}>
         <Card.Img variant="top" src="/images/wine.jpg" />
         <Card.Body>
           <Card.Title className="text-center">Welcome {username} !</Card.Title>
