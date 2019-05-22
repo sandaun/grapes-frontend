@@ -15,6 +15,24 @@ class Recipes {
       .then(({ data }) => data);
   }
 
+  readFavorites () {
+    return this.recipes
+    .get("recipes/favorite")
+    .then(({ data }) => data);
+  }
+  
+  addFavoriteRecipe (favoriteId) {
+    return this.recipes
+      .put(`recipes/favorite/${favoriteId}`)
+      .then(({ data }) => data);
+  }
+
+  deleteFavoriteRecipe (favoriteId) {
+    return this.recipes
+      .post(`recipes/favorite/delete/${favoriteId}`)
+      .then(({ data }) => data);
+  }
+
 }
 
 const recipes = new Recipes();

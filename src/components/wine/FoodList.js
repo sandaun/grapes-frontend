@@ -40,7 +40,6 @@ class FoodList extends Component {
   }
 
   isRenderingFoodList = () => {
-    console.log('this is foodlist again')
     this.setState({
       isRenderingFoodList: true,
     })

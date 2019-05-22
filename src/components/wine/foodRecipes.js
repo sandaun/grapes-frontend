@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
+import { withAuth } from "../../lib/AuthProvider";
 import Recipes from "../../lib/recipe-service";
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
 
@@ -9,16 +10,22 @@ class FoodList extends Component {
     searchBaseUri: '',
     searchRecipiesResults: [],
     isLoading: true,
+    favoriteRecipes: [],
+    isFavorited: true,
   }
 
   async componentDidMount() {
     const { individualFood } = this.props;
     const search = await Recipes.seaechRecipes({ individualFood }).then(( data ) => data);
     const { results, baseUri } = search;
+    console.log(results);
+    const getFavoriteRecipes = await Recipes.readFavorites().then(( data ) => data);
+    console.log(getFavoriteRecipes, 'this should be favorites');
     this.setState({
       searchBaseUri: baseUri,
       searchRecipiesResults: results,
       isLoading: false,
+      favoriteRecipes: getFavoriteRecipes,
     })
   }
 
@@ -30,13 +37,41 @@ class FoodList extends Component {
     return text
   }
 
-  handleBack = () =>{
+  handleBack = () => {
     this.props.isRenderingFoodList();
+  }
+
+  isRecipeFavorited = (recipeId) => {
+    console.log(this.state.isFavorited)
+    this.state.isFavorited ? this.favoriteRecipe(recipeId) : this.deleteRecipe(recipeId);
+  }
+
+  favoriteRecipe = async (recipeId) => {
+    const { favoriteRecipes } = this.state;    
+      await Recipes.addFavoriteRecipe( recipeId ).then(( data ) => data);
+      console.log(favoriteRecipes, 'this is state favorite recipe array');
+      this.setState({
+        favoriteRecipes: [...favoriteRecipes, recipeId],
+      })
+  }
+
+  deleteRecipe = async (recipeId) => {
+    const { favoriteRecipes } = this.state;
+    const recipeIndex = favoriteRecipes.indexOf(recipeId);
+    if (recipeIndex !== -1) {
+      const newFavorites = [...favoriteRecipes];
+      newFavorites.splice(recipeIndex, 1);
+      await Recipes.deleteFavoriteRecipe( recipeId ).then(( data ) => data);
+      this.setState({
+        favoriteRecipes: newFavorites,
+      })
+    }
   }
 
   render () {
     const { searchRecipiesResults, searchBaseUri, isLoading } = this.state
     const { individualFood } = this.props;
+    console.log(this.state.favoriteRecipes, 'render')
 
     return isLoading ? (
       <div className="vertical-center list-background">
@@ -69,7 +104,10 @@ class FoodList extends Component {
                     <ListGroupItem className="recipe-background-lines"><span className="recipe-ingredients">Ready in:</span> {recipies.readyInMinutes} minutes</ListGroupItem>
                   </ListGroup>
                   <div className="list-buttons justify-content-center mt-2 mb-2">
-                    <Button variant="primary">Favorite</Button>
+                    <Button onClick={() => this.isRecipeFavorited(recipies.id)} variant="primary">Favorite</Button>
+                  </div>
+                  <div className="list-buttons justify-content-center mt-2 mb-2">
+                    <Button onClick={() => this.deleteRecipe(recipies.id)} variant="primary">DELETE</Button>
                   </div>
                 </Card>
               </div>
@@ -82,4 +120,4 @@ class FoodList extends Component {
   }
 }
 
-export default withRouter(FoodList);
+export default withAuth(withRouter(FoodList));
