@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withAuth } from "../../lib/AuthProvider";
 import Recipes from "../../lib/recipe-service";
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
+import Footer from "../Footer";
 
 class FoodList extends Component {
 
@@ -127,6 +128,7 @@ class FoodList extends Component {
             )
           })}
         </div>
+        <Footer />
       </Container>
       </>
     );

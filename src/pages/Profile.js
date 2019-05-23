@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import { Link } from 'react-router-dom';
 import { Container, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Back from "../components/BackButton";
 import Recipes from "../lib/recipe-service";
+import Footer from "../components/Footer"
 
 class Profile extends Component {
 
@@ -36,13 +36,14 @@ class Profile extends Component {
         <ListGroup className="list-group-flush">
           <ListGroupItem>Name: {name}</ListGroupItem>
           <ListGroupItem>Email: {email}</ListGroupItem>
-          <ListGroupItem>Favorite recipies: {favoriteRecipes.length}<Link className="profile-text" to='/favorites'>. Check them!</Link></ListGroupItem>
+          <ListGroupItem>Favorite recipies: {favoriteRecipes.length}</ListGroupItem>
           {/* <ListGroupItem><Link to='/favorites'>Favorites</Link></ListGroupItem> */}
         </ListGroup>
         <Card.Body className="text-center">
           <Card.Link href="/update" className="profile-text">Update Profile</Card.Link>
         </Card.Body>
       </Card>
+      <Footer/>
     </Container>
       </>
     );

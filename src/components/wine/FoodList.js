@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { Container, Card, Button, Spinner } from 'react-bootstrap';
+import { withAuth } from '../../lib/AuthProvider';
 import Back from "../BackButton";
 import Recipes from "./foodRecipes";
+import Footer from "../../components/Footer"
 
 class FoodList extends Component {
 
@@ -46,8 +48,9 @@ class FoodList extends Component {
   }
 
   render () {
-    const { foodList, isLoading } = this.state
+    const { foodList, isLoading, isRenderingFoodList } = this.state
     const { item } = this.props.match.params;
+    const { isLoggedin } = this.props
 
     return isLoading ? (
       <div className="vertical-center list-background">
@@ -55,7 +58,7 @@ class FoodList extends Component {
           <span className="sr-only">Loading...</span>
         </Spinner>
       </div>
-    ) : this.state.isRenderingFoodList ? 
+    ) : isRenderingFoodList ? 
     ( 
       <>
       <Container className="list-background vertical-center">
@@ -82,12 +85,15 @@ class FoodList extends Component {
             )
           })}
         </div>
+        <Footer />
       </Container>
       </>
-    ) : (
+    ) : isLoggedin ? ( 
           <Recipes individualFood={this.state.individualFoodText} isRenderingFoodList={this.isRenderingFoodList} />
-        );
+        ) : ( 
+              <Redirect to="/login" />
+            )
   }
 }
 
-export default withRouter(FoodList);
+export default withAuth(withRouter(FoodList));

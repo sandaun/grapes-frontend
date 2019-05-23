@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withAuth } from "../../lib/AuthProvider";
 import Recipes from "../../lib/recipe-service";
 import Back from "../../components/BackButton";
+import Footer from "../../components/Footer"
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class FoodList extends Component {
@@ -72,7 +73,7 @@ class FoodList extends Component {
         <Container className="list-background vertical-center">
           <Back />
           <div className="mt-4 text-center" style={{ width: '18rem' }}>
-            <h4 className="text-white">Recipies for <span className="list-text">Your favorite recipes</span></h4>
+            <h4 className="text-white"> <span className="list-text">{this.props.user.username}</span>, check your favorite recipes</h4>
           </div>
           <div>
             {favoritesDataArray.map((favorites, index) => {
@@ -107,6 +108,7 @@ class FoodList extends Component {
               )
             })}
           </div>
+          <Footer />
         </Container>
       </>
     );

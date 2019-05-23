@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Pairing from "../../lib/wine-service";
 import { Container, Card, Spinner } from 'react-bootstrap';
 import Back from "../BackButton";
+import Footer from "../../components/Footer"
 
 class WineList extends Component {
 
@@ -62,6 +63,7 @@ class WineList extends Component {
             )
           })}
         </div>
+        <Footer />
       </Container>
       </>
     );
