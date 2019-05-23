@@ -5,6 +5,9 @@ import Recipes from "../../lib/recipe-service";
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Footer from "../Footer";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class FoodList extends Component {
 
   state = {
@@ -14,6 +17,7 @@ class FoodList extends Component {
     favoriteRecipes: [],
   }
 
+  
   async componentDidMount() {
     const { individualFood } = this.props;
     const search = await Recipes.seaechRecipes({ individualFood }).then(( data ) => data);
@@ -26,6 +30,24 @@ class FoodList extends Component {
       isLoading: false,
       favoriteRecipes: getFavoriteRecipesToNumber,
     })
+  }
+  
+  successRecipeToast = () => {
+    toast.success("Recipe added to favorites !", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+
+  infoRecipeToast = () => {
+    toast.info("Recipe already exists in favorites", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+
+  removeRecipeToast = () => {
+    toast.error("Recipe deleted from favorites", {
+      position: toast.POSITION.TOP_CENTER
+    });
   }
 
   capitalizeFoodNames = (text) => {
@@ -44,11 +66,12 @@ class FoodList extends Component {
     const { favoriteRecipes } = this.state;    
       if (favoriteRecipes.indexOf(recipeId) === -1) {
         await Recipes.addFavoriteRecipe( recipeId ).then(( data ) => data);
+        this.successRecipeToast();
         this.setState({
           favoriteRecipes: [...favoriteRecipes, recipeId],
         })
       } else { 
-        console.log('The recipe already exists')
+        this.infoRecipeToast();
       }
   }
 
@@ -59,6 +82,7 @@ class FoodList extends Component {
       const newFavorites = [...favoriteRecipes];
       newFavorites.splice(recipeIndex, 1);
       await Recipes.deleteFavoriteRecipe( recipeId ).then(( data ) => data);
+      this.removeRecipeToast();
       this.setState({
         favoriteRecipes: newFavorites,
       })

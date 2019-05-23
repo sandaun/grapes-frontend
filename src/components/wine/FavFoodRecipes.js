@@ -5,6 +5,8 @@ import Recipes from "../../lib/recipe-service";
 import Back from "../../components/BackButton";
 import Footer from "../../components/Footer"
 import { Container, Card, Button, Spinner, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class FoodList extends Component {
 
@@ -23,6 +25,12 @@ class FoodList extends Component {
       favoritesArray: getFavoriteRecipesIdsToNumber,
       favoritesDataArray: getFavoriteRecipesData,
     })
+  }
+
+  removeRecipeToast = () => {
+    toast.error("Recipe deleted from favorites", {
+      position: toast.POSITION.TOP_CENTER
+    });
   }
 
   getFavoritesInfo = async (favorites) => {
@@ -47,6 +55,7 @@ class FoodList extends Component {
     const { favoritesArray } = this.state;
     const recipeIndex = favoritesArray.indexOf(recipeId);
     if (recipeIndex !== -1) {
+      this.removeRecipeToast();
       await Recipes.deleteFavoriteRecipe( recipeId ).then(( data ) => data);
       const getFavoriteRecipesIds = await Recipes.readFavorites().then(( data ) => data);
       const getFavoriteRecipesIdsToNumber = await getFavoriteRecipesIds.map(Number);

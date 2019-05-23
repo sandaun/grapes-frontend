@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import { Nav, NavItem } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../app.css';
 
 class Buttonsbottom extends Component {
+
+  logoutToast = () => {
+    const { logout } = this.props
+    toast.info("Hope to see you soon!", {
+      position: toast.POSITION.TOP_CENTER
+    });
+    logout();
+  }
+
   render() {
-    const { isLoggedin, logout } = this.props;
+    const { isLoggedin } = this.props;
       return isLoggedin ? (
         
         <div className="footer-background">
@@ -21,7 +32,7 @@ class Buttonsbottom extends Component {
               <Link className="footer-text" to='/favorites'><span role="img" aria-label="Favorites">❤️Favorites</span></Link>
             </NavItem>
             <NavItem>
-              <div className="footer-text" onClick={logout}>
+              <div className="footer-text" onClick={this.logoutToast}>
                 <span role="img" aria-label="Logout">🚶🏻‍♂️Log out</span>
               </div>
             </NavItem>
@@ -37,9 +48,6 @@ class Buttonsbottom extends Component {
           <NavItem>
             <Link className="footer-text" to='/signup'><span role="img" aria-label="Sign up">✍🏼Sign up</span></Link>
           </NavItem>
-          {/* <NavItem>
-            <Link className="footer-text" to='/profile'><span role="img" aria-label="Favorites">❤️Favorites</span></Link>
-          </NavItem> */}
         </Nav>
       </div>
       )

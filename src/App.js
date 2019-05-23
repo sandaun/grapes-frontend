@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 
-// import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -10,13 +9,18 @@ import Home from "./components/home/Home";
 import FoodList from "./components/wine/FoodList";
 import WineList from "./components/food/WineList";
 import NotFound from "./components/NotFound";
-// import SearchItem from "./components/home/SearchItem";
 import './app.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
 import FavFoodRecipes from "./components/wine/FavFoodRecipes";
+
+toast.configure({
+  autoClose: 3000,
+})
 
 class App extends Component {
 

@@ -29,10 +29,6 @@ class Auth {
   me() {
     return this.auth.get("/auth/me").then(response => response.data);
   }
-// //Just for test purposes with the backend
-//   test() {
-//     return this.auth.get("/auth/test").then(response => response.data);
-//   }
 }
 
 const auth = new Auth();
