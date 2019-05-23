@@ -18,11 +18,12 @@ class FoodList extends Component {
     const search = await Recipes.seaechRecipes({ individualFood }).then(( data ) => data);
     const { results, baseUri } = search;
     const getFavoriteRecipes = await Recipes.readFavorites().then(( data ) => data);
+    const getFavoriteRecipesToNumber = await getFavoriteRecipes.map(Number);
     this.setState({
       searchBaseUri: baseUri,
       searchRecipiesResults: results,
       isLoading: false,
-      favoriteRecipes: getFavoriteRecipes,
+      favoriteRecipes: getFavoriteRecipesToNumber,
     })
   }
 
@@ -40,10 +41,14 @@ class FoodList extends Component {
 
   favoriteRecipe = async (recipeId) => {
     const { favoriteRecipes } = this.state;    
-      await Recipes.addFavoriteRecipe( recipeId ).then(( data ) => data);
-      this.setState({
-        favoriteRecipes: [...favoriteRecipes, recipeId],
-      })
+      if (favoriteRecipes.indexOf(recipeId) === -1) {
+        await Recipes.addFavoriteRecipe( recipeId ).then(( data ) => data);
+        this.setState({
+          favoriteRecipes: [...favoriteRecipes, recipeId],
+        })
+      } else { 
+        console.log('The recipe already exists')
+      }
   }
 
   deleteRecipe = async (recipeId) => {
@@ -58,7 +63,6 @@ class FoodList extends Component {
       })
     }
   }
-
 
   render () {
     const { searchRecipiesResults, searchBaseUri, isLoading } = this.state

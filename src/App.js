@@ -16,6 +16,7 @@ import './app.css';
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
+import FavFoodRecipes from "./components/wine/FavFoodRecipes";
 
 class App extends Component {
 
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path="/food/:item" component={WineList} />
             <PrivateRoute exact path="/update" component={Edit} />
             <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/favorites" component={FavFoodRecipes} />
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
             <Route path='*' exact={true} component={NotFound} />

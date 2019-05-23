@@ -15,6 +15,12 @@ class Recipes {
       .then(({ data }) => data);
   }
 
+  getFavoriteRecipes(id) {
+    return this.recipes
+      .get('/recipes/recipelist/favorites/?query=' + id)
+      .then(({ data }) => data);
+  }
+
   readFavorites () {
     return this.recipes
     .get("recipes/favorite")
