@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import { Form, Button, Container } from 'react-bootstrap';
 import Back from "../components/BackButton";
+import Footer from "../components/Footer"
 
 
 class Login extends Component {
@@ -83,6 +84,7 @@ class Login extends Component {
             </p>
           </div>
         </div>
+        <Footer />
       </Container>
     );
   }

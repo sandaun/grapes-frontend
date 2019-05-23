@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import { Form, Button, Container } from 'react-bootstrap';
 import Back from "../components/BackButton";
+import Footer from "../components/Footer"
 
 class Signup extends Component {
   state = {
@@ -83,6 +84,7 @@ class Signup extends Component {
             </p>
           </div>
         </div>
+        <Footer />
       </Container>
     );
   }
