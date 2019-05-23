@@ -42,6 +42,9 @@ class Buttonsbottom extends Component {
       ) : (
        <div>
          <Nav className="justify-content-center white fixed-bottom footer-background footer-text">
+          <NavItem>
+            <Link className="footer-text" to='/'><span role="img" aria-label="Home">🏠Home</span></Link>
+          </NavItem>
           <NavItem className="footer-text">
             <Link className="footer-text" to='/login'><span role="img" aria-label="Login">🙋🏻‍♂️Log in</span></Link>
           </NavItem>

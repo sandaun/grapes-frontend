@@ -51,12 +51,9 @@ class WineList extends Component {
             return (
               <div key={index}>
                 <Card style={{ width: '18rem' }} className="mt-3 mb-3 list-cards">
-                  <Card.Img variant="top" src="/images/wine.jpg" />
+                  <Card.Img variant="top" id="wine" src="/images/grapes/red.jpeg" />
                   <Card.Body>
                     <Card.Title className="text-center">{this.capitalizeWineNames(wine)}</Card.Title>
-                    {/* <div className="list-buttons justify-content-center">
-                      <Button variant="primary">Get Wine!</Button>
-                    </div> */}
                   </Card.Body>
                 </Card>
               </div>
