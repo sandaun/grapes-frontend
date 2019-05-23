@@ -5,8 +5,6 @@ import Footer from "../Footer"
 import { withRouter } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import { Container, Button, Card } from 'react-bootstrap';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
 class Home extends Component {
 
@@ -21,16 +19,12 @@ class Home extends Component {
   render () {
     let modalWineClose = () => this.setState({ modalWineShow: false });
     let modalFoodClose = () => this.setState({ modalFoodShow: false });
-    // const toasting = () => toast.success("Success Notification !", {
-    //   position: toast.POSITION.TOP_CENTER
-    // });
 
     return (
       <>
         <div className="home-header">
           <h1 className="display-1">grapes</h1>
           <p>Find the perfect lover for your wine and food</p>
-          {/* <button onClick={toasting}>Notify !</button> */}
         </div>
         <Container className="home-background vertical-center">
           <div className="home-wrap-cards">
